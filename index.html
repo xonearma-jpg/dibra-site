@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DIBRA | Digital Growth, Web Design & Local SEO</title>
+  <title>DIBRA | Client Agreement, Receipt & Fulfillment Hub</title>
   <link rel="preconnect" href="https://googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
   <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,10 +12,12 @@
       --bg-base: #131314;
       --surface-1: #1E1F20;
       --surface-2: #282A2C;
-      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-subtle: rgba(255, 255, 255, 0.09);
       --text-primary: #E3E3E3;
       --text-secondary: #C4C7C5;
       --accent-blue: #A8C7FA;
+      --accent-green: #81C995;
+      --accent-yellow: #FDD663;
       --accent-glow: linear-gradient(135deg, #A8C7FA 0%, #D0BCFF 50%, #F2B8B5 100%);
       --btn-text: #041E49;
     }
@@ -31,21 +33,21 @@
       background-color: var(--bg-base);
       color: var(--text-primary);
       line-height: 1.6;
-      overflow-x: hidden;
+      padding-bottom: 64px;
     }
 
     .container {
-      max-width: 1120px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 18px;
     }
 
     header {
-      padding: 20px 0;
+      padding: 18px 0;
       border-bottom: 1px solid var(--border-subtle);
       position: sticky;
       top: 0;
-      background: rgba(19, 19, 20, 0.85);
+      background: rgba(19, 19, 20, 0.92);
       backdrop-filter: blur(12px);
       z-index: 100;
     }
@@ -54,46 +56,154 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    .brand {
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      display: flex;
-      align-items: center;
       gap: 10px;
     }
 
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .brand-dot {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: var(--accent-glow);
+    }
+
+    /* Navigation Tabs */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 16px 0;
+      scrollbar-width: none;
+    }
+
+    .tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      background: var(--surface-1);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--accent-blue);
+      color: var(--btn-text);
+      border-color: var(--accent-blue);
+    }
+
+    .panel {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--surface-1);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .sub {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent-blue);
+    }
+
+    .preview-box {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 18px;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      white-space: pre-wrap;
+      margin-bottom: 16px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .btn-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 24px;
+      padding: 12px 22px;
       border-radius: 999px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       text-decoration: none;
       cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
       border: none;
+      transition: opacity 0.2s ease;
     }
 
     .btn-primary {
       background: var(--accent-blue);
       color: var(--btn-text);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      opacity: 0.92;
     }
 
     .btn-tonal {
@@ -102,158 +212,71 @@
       border: 1px solid var(--border-subtle);
     }
 
-    .hero {
-      padding: 80px 0 64px;
-      text-align: center;
+    .btn-pill:hover {
+      opacity: 0.9;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 6px 16px;
-      border-radius: 999px;
-      background: var(--surface-1);
-      border: 1px solid var(--border-subtle);
+    /* Checklist Styling */
+    .check-group-title {
       color: var(--accent-blue);
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 24px;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 3.75rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      max-width: 820px;
-      margin: 0 auto 20px;
-    }
-
-    .gradient-text {
-      background: var(--accent-glow);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      color: var(--text-secondary);
-      font-size: 1.125rem;
-      max-width: 640px;
-      margin: 0 auto 36px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .audit-section {
-      padding: 32px 0 72px;
-    }
-
-    .audit-card {
-      background: var(--surface-1);
-      border: 1px solid var(--border-subtle);
-      border-radius: 28px;
-      padding: 36px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .audit-card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-    }
-
-    .audit-card p {
-      color: var(--text-secondary);
       font-size: 0.95rem;
-      margin-bottom: 24px;
-    }
-
-    .checklist {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 24px;
+      font-weight: 600;
+      margin: 18px 0 10px;
     }
 
     .check-item {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
       background: var(--surface-2);
-      padding: 14px 18px;
-      border-radius: 16px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      margin-bottom: 8px;
       cursor: pointer;
+      font-size: 0.92rem;
     }
 
     .check-item input {
       width: 18px;
       height: 18px;
+      margin-top: 2px;
       accent-color: var(--accent-blue);
     }
 
-    .score-box {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .score-display {
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-
-    .services {
-      padding: 48px 0 88px;
-    }
-
-    .section-title {
-      font-size: 1.85rem;
-      margin-bottom: 32px;
-      text-align: center;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--surface-1);
+    /* Flyer Cards */
+    .flyer-item {
+      background: var(--surface-2);
       border: 1px solid var(--border-subtle);
-      border-radius: 24px;
-      padding: 28px;
-      transition: border-color 0.2s ease;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 14px;
     }
 
-    .card:hover {
-      border-color: rgba(168, 199, 250, 0.35);
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
+    .flyer-item h3 {
       color: var(--accent-blue);
+      font-size: 1.05rem;
+      margin-bottom: 6px;
     }
 
-    .card p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 32px 0;
-      text-align: center;
-      color: var(--text-secondary);
+    .flyer-item p {
       font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-green);
+      color: #041E49;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: none;
+      z-index: 999;
     }
   </style>
 </head>
@@ -263,97 +286,83 @@
     <div class="container nav-wrap">
       <div class="brand">
         <span class="brand-dot"></span>
-        <span>DIBRA</span>
+        <span>DIBRA OPS HUB</span>
       </div>
-      <a href="#audit" class="btn-pill btn-primary">Free Visibility Check</a>
+      <span style="font-size: 0.82rem; color: var(--accent-blue);">+256 732 166 463</span>
     </div>
   </header>
 
-  <main>
-    <section class="hero container">
-      <span class="badge">Web Design • Google Maps SEO • Social Growth</span>
-      <h1>Turn Local Searches & Global Clicks Into <span class="gradient-text">Paying Customers</span></h1>
-      <p>High-contrast dark-mode websites, verified Google Maps ranking, and conversion-focused social branding built for modern businesses.</p>
-      <div class="hero-actions">
-        <a href="#audit" class="btn-pill btn-primary">Check Your Business Score</a>
-        <a href="#services" class="btn-pill btn-tonal">Explore Packages</a>
-      </div>
-    </section>
-
-    <section id="audit" class="audit-section container">
-      <div class="audit-card">
-        <h2>Instant Google Maps & Web Visibility Check</h2>
-        <p>Tick what your business currently has active to see your digital readiness score:</p>
-        
-        <div class="checklist">
-          <label class="check-item">
-            <input type="checkbox" class="audit-box" value="25" onchange="calcScore()">
-            <span>Verified Google Maps Pin with exact location & phone number</span>
-          </label>
-          <label class="check-item">
-            <input type="checkbox" class="audit-box" value="25" onchange="calcScore()">
-            <span>At least 15+ recent 5-star customer reviews</span>
-          </label>
-          <label class="check-item">
-            <input type="checkbox" class="audit-box" value="25" onchange="calcScore()">
-            <span>Fast-loading mobile website linked to Google</span>
-          </label>
-          <label class="check-item">
-            <input type="checkbox" class="audit-box" value="25" onchange="calcScore()">
-            <span>Active social media catalog with direct WhatsApp ordering</span>
-          </label>
-        </div>
-
-        <div class="score-box">
-          <div class="score-display">Your Score: <span id="scoreVal" style="color: #A8C7FA;">0%</span> — <span id="scoreStatus">Critical Visibility Gap</span></div>
-          <a id="waLink" href="https://wa.me." target="_blank" class="btn-pill btn-primary">Fix My Score on WhatsApp</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="services container">
-      <h2 class="section-title">What DIBRA Builds For You</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>01. Google Maps Domination</h3>
-          <p>We verify, optimize, and rank your business pin so nearby customers find your directions, hours, and WhatsApp button first.</p>
-        </div>
-        <div class="card">
-          <h3>02. Next-Gen Dark Web Design</h3>
-          <p>Ultra-fast, sleek Material-inspired landing pages and storefronts that make your brand look like an industry leader.</p>
-        </div>
-        <div class="card">
-          <h3>03. Social Media Growth Kits</h3>
-          <p>Cohesive dark-mode promotional templates and targeted campaigns that turn passive scrollers into daily buyers.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© 2026 DIBRA Digital • WhatsApp: +256 732 166 463</p>
+  <main class="container">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="openTab('agreement', this)">1. Agreement & Receipt</button>
+      <button class="tab-btn" onclick="openTab('retainer', this)">2. Retainer Upsell</button>
+      <button class="tab-btn" onclick="openTab('maps', this)">3. Maps Checklist</button>
+      <button class="tab-btn" onclick="openTab('flyers', this)">4. 5-Flyer Prompts</button>
     </div>
-  </footer>
 
-  <script>
-    function calcScore() {
-      const boxes = document.querySelectorAll('.audit-box');
-      let total = 0;
-      boxes.forEach(box => {
-        if (box.checked) total += parseInt(box.value);
-      });
-      document.getElementById('scoreVal').textContent = total + '%';
-      const status = document.getElementById('scoreStatus');
-      if (total <= 25) {
-        status.textContent = 'Critical Visibility Gap';
-        status.style.color = '#F2B8B5';
-      } else if (total <= 75) {
-        status.textContent = 'Missing Key Customers';
-        status.style.color = '#FDD663';
-      } else {
-        status.textContent = 'Ready to Scale Globally';
-        status.style.color = '#81C995';
-      }
+    <!-- TAB 1: AGREEMENT & RECEIPT GENERATOR -->
+    <section id="agreement" class="panel active">
+      <div class="card">
+        <h2>Instant Client Agreement & Payment Receipt</h2>
+        <p class="sub">Fill in the client details below to generate a clean WhatsApp agreement and official deposit receipt.</p>
 
-      const msg = encodeURIComponent(`Hello DIBRA, my business visibility score is ${total}%. I want to upgrade my online presence.`);
+        <div class="form-grid">
+          <div>
+            <label>Client / Business Name</label>
+            <input type="text" id="cName" placeholder="e.g., Mukono Prime Dental" oninput="updateDocs()">
+          </div>
+          <div>
+            <label>Client WhatsApp (with 256)</label>
+            <input type="tel" id="cPhone" placeholder="e.g., 256770000000" oninput="updateDocs()">
+          </div>
+          <div>
+            <label>Package Selected</label>
+            <select id="cPkg" onchange="updateDocs()">
+              <option value="Local Growth Pack (Maps + 1-Page Site + 5 Flyers)">Local Growth Pack (Maps + Site + 5 Flyers)</option>
+              <option value="Google Maps Optimization Only">Google Maps Optimization Only</option>
+              <option value="Custom Dark-Mode Landing Page">Custom Dark-Mode Landing Page</option>
+              <option value="Global Brand Lift (USD)">Global Brand Lift (USD)</option>
+            </select>
+          </div>
+          <div>
+            <label>Total Fee (e.g., 300,000 UGX)</label>
+            <input type="text" id="cTotal" value="300,000 UGX" oninput="updateDocs()">
+          </div>
+          <div>
+            <label>Deposit Paid Now</label>
+            <input type="text" id="cPaid" value="150,000 UGX" oninput="updateDocs()">
+          </div>
+          <div>
+            <label>Balance Due on Delivery</label>
+            <input type="text" id="cBal" value="150,000 UGX" oninput="updateDocs()">
+          </div>
+        </div>
+
+        <label>Live Agreement & Receipt Preview</label>
+        <div class="preview-box" id="docPreview"></div>
+
+        <div class="btn-row">
+          <button class="btn-pill btn-primary" onclick="sendWhatsApp('docPreview', 'cPhone')">Send to Client on WhatsApp</button>
+          <button class="btn-pill btn-tonal" onclick="copyText('docPreview')">Copy Text</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: MONTHLY RETAINER UPSELL SCRIPT -->
+    <section id="retainer" class="panel">
+      <div class="card">
+        <h2>Recurring Monthly Retainer Pitch</h2>
+        <p class="sub">Send this 7 days after delivering their project to turn a one-time buyer into recurring monthly income.</p>
+
+        <div class="form-grid">
+          <div>
+            <label>Client Business Name</label>
+            <input type="text" id="rName" placeholder="e.g., Mukono Prime Dental" oninput="updateRetainer()">
+          </div>
+          <div>
+            <label>Monthly Retainer Price</label>
+            <input type="text" id="rPrice" value="100,000 UGX / month" oninput="updateRetainer()">
+          </div>
+        </div>
+
+        <label>Ready-to-Send WhatsApp Pitch</label>
