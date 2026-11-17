@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUSINESS NAME | Official Site</dibra>
+  <link href="https://googleapis.com" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #131314;
+      --card: #1E1F20;
+      --card-hover: #282A2C;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #E3E3E3;
+      --muted: #C4C7C5;
+      --accent: #A8C7FA;
+      --btn-text: #041E49;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 18px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: 0.04em; }
+    .btn { display: inline-block; background: var(--accent); color: var(--btn-text); padding: 12px 24px; border-radius: 999px; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+    .hero { padding: 64px 0 48px; text-align: center; }
+    .tag { display: inline-block; background: var(--card); border: 1px solid var(--border); color: var(--accent); padding: 6px 14px; border-radius: 999px; font-size: 0.85rem; margin-bottom: 18px; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin-bottom: 16px; }
+    .hero p { color: var(--muted); max-width: 580px; margin: 0 auto 28px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; padding: 24px 0 56px; }
+    .box { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 24px; }
+    .box h3 { color: var(--accent); margin-bottom: 8px; font-size: 1.15rem; }
+    .box p { color: var(--muted); font-size: 0.92rem; }
+    .info-bar { background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 28px; text-align: center; margin-bottom: 56px; }
+    footer { border-top: 1px solid var(--border); padding: 24px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">BUSINESS NAME</div>
+      <a href="https://wa.me." class="btn">Book / Order</a>
+    </header>
+
+    <section class="hero">
+      <span class="tag">CATEGORY TAG</span>
+      <h1>MAIN HEADLINE</h1>
+      <p>Fast service, trusted quality, and direct WhatsApp support. Message us now to book an appointment or place your order.</p>
+      <a href="https://wa.me." class="btn">Chat on WhatsApp</a>
+    </section>
+
+    <section class="grid">
+      <div class="box">
+        <h3>Service One</h3>
+        <p>Short description of their top service or best-selling product.</p>
+      </div>
+      <div class="box">
+        <h3>Service Two</h3>
+        <p>Short description of their second popular service or package.</p>
+      </div>
+      <div class="box">
+        <h3>Service Three</h3>
+        <p>Short description of their third offering or special customer guarantee.</p>
+      </div>
+    </section>
+
+    <div class="info-bar">
+      <h2 style="margin-bottom: 8px;">Visit or Contact Us</h2>
+      <p style="color: var(--muted); margin-bottom: 20px;">LOCATION & HOURS (e.g., Mukono Town, Main Street • Open Mon–Sat 8:00 AM – 7:00 PM)</p>
+      <a href="https://wa.me" class="btn">Message +CLIENT_PHONE</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 BUSINESS NAME • Powered by <a href="https://dibra-site.xonearma.workers.dev/">DIBRA</a></p>
+  </footer>
+</body>
+</html>
