@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIBRA Storefront — WhatsApp Mobile Catalog Template</title>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0D12;
+      --surface: #141821;
+      --surface-light: #1C2230;
+      --border: #252B3B;
+      --primary: #3B82F6;
+      --accent: #00D4FF;
+      --whatsapp: #22C55E;
+      --text: #F3F4F6;
+      --muted: #9CA3AF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding-bottom: 96px;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      background: rgba(11, 13, 18, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .store-title h1 { font-size: 1.25rem; font-weight: 800; }
+    .store-title p { font-size: 0.85rem; color: var(--muted); }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--whatsapp);
+      font-weight: 600;
+    }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--whatsapp); }
+
+    /* Filter Tabs */
+    .filters {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 24px 0 16px;
+    }
+    .filter-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    /* Product Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 8px;
+    }
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-tag {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .product-card h3 { font-size: 1.08rem; margin-bottom: 6px; }
+    .product-desc { font-size: 0.88rem; color: var(--muted); margin-bottom: 16px; }
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .price { font-weight: 800; font-size: 1.05rem; }
+    .add-btn {
+      background: var(--surface-light);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .add-btn:hover { background: var(--primary); border-color: var(--primary); }
+
+    /* Location Box */
+    .location-card {
+      margin-top: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .location-card h4 { font-size: 1.05rem; margin-bottom: 4px; }
+    .location-card p { font-size: 0.9rem; color: var(--muted); }
+    .map-link {
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Floating WhatsApp Checkout Bar */
+    .checkout-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 14px 20px;
+      display: none;
+      z-index: 100;
+    }
+    .checkout-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .cart-summary { font-size: 0.92rem; }
+    .cart-summary strong { color: var(--accent); font-size: 1.05rem; }
+    .wa-order-btn {
+      background: var(--whatsapp);
+      color: #062411;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
+    .clear-btn {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 0.82rem;
+      cursor: pointer;
+      text-decoration: underline;
+      margin-left: 10px;
+    }
+
+    .powered-by {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .powered-by a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <div class="store-title">
+        <h1 id="shop-name">Store Name</h1>
+        <p id="shop-tagline">Fast local delivery &amp; pickup</p>
+      </div>
+      <div class="status-pill"><span class="status-dot"></span> Open Now</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="filters" id="category-filters"></div>
+    <div class="grid" id="product-grid"></div>
+
+    <div class="location-card">
+      <div>
+        <h4>Visit Our Physical Location</h4>
+        <p id="shop-address">Main Street, Mukono • Open Mon–Sat, 8:00 AM – 8:00 PM</p>
+      </div>
+      <a id="shop-map-link" href="#" target="_blank" class="map-link">Open in Google Maps &rarr;</a>
+    </div>
+
+    <div class="powered-by">
+      Built with <a href="#">DIBRA Web Kits</a>
+    </div>
+  </main>
+
+  <div class="checkout-bar" id="checkout-bar">
+    <div class="checkout-inner">
+      <div class="cart-summary">
+        <span id="cart-count">0 items</span> &bull; <strong id="cart-total">0 UGX</strong>
+        <button class="clear-btn" onclick="clearCart()">Clear</button>
+      </div>
+      <button class="wa-order-btn" onclick="sendWhatsAppOrder()">Order on WhatsApp &rarr;</button>
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // EASY CLIENT CONFIGURATION (EDIT THIS ONLY)
+    // ==========================================
+    const STORE_CONFIG = {
+      name: "DIBRA Demo Store",
+      tagline: "Tap items below to send an instant WhatsApp order",
+      whatsappNumber: "256700000000", // Replace with client/your number (no +)
+      currency: "UGX",
+      address: "Kampala-Jinja Highway, Mukono • Open 8:00 AM – 8:00 PM",
+      googleMapsUrl: "https://google.com",
+      products: [
+        { id: 1, category: "Electronics", name: "Wireless Earbuds Pro", desc: "Noise-canceling with 24hr charging case.", price: 85000 },
+        { id: 2, category: "Electronics", name: "20,000mAh Fast Powerbank", desc: "Dual USB-C fast charge for phones & tablets.", price: 95000 },
+        { id: 3, category: "Accessories", name: "Smart Fitness Watch", desc: "Heart rate monitor, notifications & waterproof.", price: 120000 },
+        { id: 4, category: "Accessories", name: "Laptop Sleeve 15-inch", desc: "Water-resistant padded dark slate sleeve.", price: 45000 },
+        { id: 5, category: "Bundles", name: "Creator Desk Kit", desc: "LED ring light, phone tripod & clip mic.", price: 110000 },
+        { id: 6, category: "Bundles", name: "Travel Charger Pack", desc: "35W GaN adapter + braided Type-C cable.", price: 55000 }
+      ]
+    };
+    // ==========================================
+
+    let cart = {};
+    let activeCategory = "All";
+
+    document.getElementById("shop-name").textContent = STORE_CONFIG.name;
+    document.getElementById("shop-tagline").textContent = STORE_CONFIG.tagline;
+    document.getElementById("shop-address").textContent = STORE_CONFIG.address;
+    document.getElementById("shop-map-link").href = STORE_CONFIG.googleMapsUrl;
+
+    function renderFilters() {
+      const categories = ["All", ...new Set(STORE_CONFIG.products.map(p => p.category))];
+      const container = document.getElementById("category-filters");
+      container.innerHTML = categories.map(cat => `
+        <button class="filter-btn ${cat === activeCategory ? 'active' : ''}" onclick="setCategory('${cat}')">${cat}</button>
+      `).join("");
+    }
+
+    function setCategory(cat) {
+      activeCategory = cat;
+      renderFilters();
+      renderProducts();
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById("product-grid");
+      const filtered = activeCategory === "All"
+        ? STORE_CONFIG.products
+        : STORE_CONFIG.products.filter(p => p.category === activeCategory);
+
+      grid.innerHTML = filtered.map(p => {
+        const qty = cart[p.id] || 0;
+        return `
+          <div class="product-card">
+            <div>
+              <div class="product-tag">${p.category}</div>
+              <h3>${p.name}</h3>
+              <p class="product-desc">${p.desc}</p>
+            </div>
+            <div class="product-footer">
+              <span class="price">${p.price.toLocaleString()} ${STORE_CONFIG.currency}</span>
