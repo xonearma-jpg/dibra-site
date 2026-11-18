@@ -299,7 +299,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Dynamic Multi-Color Gradient Headline matching logo spectrum */
 .gradient-text {
   background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-green) 35%, var(--logo-yellow) 70%, var(--logo-coral) 100%);
   -webkit-background-clip: text;
