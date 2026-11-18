@@ -4,66 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DIBRA - Web Design, Google Maps & Social Media Marketing in Uganda</title>
-<meta name="description" content="DIBRA builds websites, sets up Google Maps Business profiles, and grows brands on social media for Ugandan businesses.">
+<meta name="description" content="DIBRA builds websites, sets up Google Maps Business profiles, and grows brands on social media for Ugandan businesses in Kamuli, Jinja and Kampala.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233B82F6'/%3E%3Cpath d='M32 10c-9 0-15 6.5-15 14.5 0 11 15 24.5 15 24.5s15-13.5 15-24.5C47 16.5 41 10 32 10z' fill='white'/%3E%3Ctext x='32' y='36' font-family='Arial' font-size='20' font-weight='900' fill='%233B82F6' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0F1115;
-  --card:#171A21;
-  --card-hover:#1F242E;
-  --border:#262B36;
-  --primary:#3B82F6;
-  --primary-hover:#2563EB;
-  --emerald:#10B981;
-  --text:#F8FAFC;
-  --muted:#94A3B8;
-  --radius:20px;
-  --radius-sm:12px;
-  --shadow:0 12px 40px rgba(0,0,0,.35);
+  --bg:#0F1115; --card:#171A21; --card-hover:#1F242E; --border:#262B36;
+  --primary:#3B82F6; --primary-hover:#2563EB; --emerald:#10B981;
+  --text:#F8FAFC; --muted:#94A3B8; --radius:20px; --shadow:0 12px 40px rgba(0,0,0,.35);
 }
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 .container{max-width:1140px;margin:auto;padding:0 20px}
 h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif;line-height:1.2;letter-spacing:-0.01em}
 .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);margin-bottom:12px}
-
-/* NAVBAR */
-header{position:sticky;top:0;z-index:50;background:rgba(15,17,21,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;letter-spacing:-0.02em}
-.logo i{color:var(--primary);font-style:normal}
-.nav-links{display:flex;gap:32px;font-size:14px;font-weight:500;color:var(--muted)}
-.nav-links a:hover{color:var(--text)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:600;font-size:15px;transition:.2s;border:1px solid transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:600;font-size:15px;transition:.2s;border:1px solid transparent;cursor:pointer}
 .btn-primary{background:linear-gradient(135deg,#3B82F6,#10B981);color:#fff;box-shadow:0 8px 24px rgba(59,130,246,.35)}
 .btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .btn-ghost{background:var(--card);border-color:var(--border);color:var(--text)}
 .btn-ghost:hover{background:var(--card-hover)}
 .btn-sm{padding:10px 18px;font-size:14px}
+.btn-white{background:#fff;color:#0F1115}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,17,21,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;letter-spacing:-0.02em}
+.logo svg{flex-shrink:0}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.hamburger{display:none;background:var(--card);border:1px solid var(--border);color:var(--text);width:44px;height:44px;border-radius:10px;font-size:20px;cursor:pointer}
+.mobile-menu{display:none;border-top:1px solid var(--border);padding:14px 20px 18px;flex-direction:column;gap:14px;background:#0F1115}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--muted);font-weight:500;font-size:15px}
 
 /* HERO */
-.hero{padding:72px 0 56px;text-align:center}
+.hero{padding:132px 0 56px;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:100px;font-size:13px;color:var(--muted);margin-bottom:24px}
-.hero-badge b{color:var(--emerald)}
 .hero h1{font-size:56px;font-weight:800;line-height:1.05;letter-spacing:-0.02em;max-width:820px;margin:0 auto 18px}
 .hero h1 span{background:linear-gradient(135deg,#3B82F6,#10B981);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{color:var(--muted);font-size:18px;max-width:640px;margin:0 auto 32px;line-height:1.65}
+.hero p{color:var(--muted);font-size:18px;max-width:640px;margin:0 auto 32px}
 .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.trust{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:36px;color:var(--muted);font-size:13px;font-weight:500}
-.trust span{display:flex;align-items:center;gap:6px}
+.trust{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:36px;color:var(--muted);font-size:13px;font-weight:500}
 .trust b{color:var(--text)}
+.pay-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.pay-badges span{background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:100px;font-size:12px;font-weight:600}
+.pay-badges span.mtn{color:#FFCC00}.pay-badges span.airtel{color:#FF4D4D}
 
-/* BENTO GRID */
+/* SECTIONS */
 .section{padding:56px 0}
 .section-head{max-width:680px;margin:0 auto 32px;text-align:center}
 .section-head h2{font-size:32px;font-weight:700;margin-bottom:10px}
 .section-head p{color:var(--muted)}
 .bento{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:.25s;display:flex;flex-direction:column}
-.card:hover{background:var(--card-hover);transform:translateY(-4px);border-color:#334155;box-shadow:var(--shadow)}
+.card:hover{background:var(--card-hover);transform:translateY(-4px);box-shadow:var(--shadow)}
 .card.featured{border-color:rgba(59,130,246,.5);background:linear-gradient(180deg,#1B2436,#171A21)}
 .icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;background:rgba(59,130,246,.14);color:var(--primary)}
 .icon.green{background:rgba(16,185,129,.14);color:var(--emerald)}
@@ -73,173 +72,183 @@ header{position:sticky;top:0;z-index:50;background:rgba(15,17,21,.82);backdrop-f
 .card ul{list-style:none;margin-bottom:22px}
 .card li{font-size:14px;padding:7px 0 7px 22px;position:relative;color:#CBD5E1}
 .card li:before{content:"✓";position:absolute;left:0;color:var(--emerald);font-weight:700}
-.card .price{margin-top:auto;padding-top:18px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card .price{margin-top:auto;padding-top:18px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px}
 .price-val{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px}
 .price-val small{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:12px;color:var(--muted)}
-.link{color:var(--primary);font-weight:600;font-size:14px}
+.link{color:var(--primary);font-weight:600;font-size:14px;white-space:nowrap}
 
-/* WHY + CTA */
-.why-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+/* WORK */
+.work-card{overflow:hidden;padding:0}
+.work-top{height:170px;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;text-align:center;padding:20px}
+.work-top.salon{background:linear-gradient(135deg,#7C3AED,#DB2777)}
+.work-top.hardware{background:linear-gradient(135deg,#EA580C,#F59E0B)}
+.work-top.cafe{background:linear-gradient(135deg,#0F766E,#10B981)}
+.work-body{padding:22px}
+.badge-live{display:inline-block;background:rgba(16,185,129,.15);color:var(--emerald);font-size:12px;font-weight:700;padding:5px 10px;border-radius:100px;margin-bottom:10px}
+.badge-maps{display:inline-block;background:rgba(59,130,246,.15);color:var(--primary);font-size:12px;font-weight:700;padding:5px 10px;border-radius:100px;margin-bottom:10px}
+.badge-social{display:inline-block;background:rgba(168,85,247,.15);color:#C084FC;font-size:12px;font-weight:700;padding:5px 10px;border-radius:100px;margin-bottom:10px}
+.work-body p{font-size:14px;color:var(--muted);margin-bottom:14px}
+.work-meta{font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:14px}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.stars{color:#F59E0B;letter-spacing:2px;margin-bottom:12px}
+.testi p{font-size:15px;color:#E2E8F0;margin-bottom:18px}
+.testi-person{display:flex;align-items:center;gap:12px;margin-top:auto}
+.avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;flex-shrink:0}
+.testi-person b{font-size:14px;display:block}
+.testi-person span{font-size:12px;color:var(--muted)}
+
+/* PRICING */
+.price-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px}
+.price-card{text-align:center}
+.price-card.popular{border-color:var(--primary);background:linear-gradient(180deg,#1B2436,#171A21)}
+.price-card .amount{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;margin:10px 0}
+.price-card .amount small{font-family:'Inter',sans-serif;font-size:12px;color:var(--muted);font-weight:400;display:block}
+.bundle-note{text-align:center;margin-top:20px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;font-size:14px}
+.bundle-note b{color:var(--emerald)}
+
+/* WHY + FAQ */
+.why-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
 .why-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px}
-.why-card h3{font-size:24px;margin-bottom:16px}
-.why-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.why-list{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
 .why-item h4{font-size:15px;margin-bottom:4px}
 .why-item p{font-size:14px;color:var(--muted)}
 .cta-banner{background:linear-gradient(135deg,#1D4ED8,#0F766E);border-radius:var(--radius);padding:32px;text-align:center}
 .cta-banner h3{font-size:26px;margin-bottom:10px}
 .cta-banner p{color:#E0E7FF;margin-bottom:22px;font-size:15px}
-.cta-banner .btn{background:#fff;color:#0F1115}
-.cta-banner .btn:hover{transform:translateY(-1px)}
 .cta-banner small{display:block;margin-top:14px;color:#BFDBFE;font-size:13px}
-footer{border-top:1px solid var(--border);padding:28px 0;margin-top:20px;color:var(--muted);font-size:14px}
-.footer-flex{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:var(--text);text-align:left;padding:18px 20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.faq-q span{color:var(--primary);font-size:20px;transition:.2s}
+.faq-a{display:none;padding:0 20px 18px;color:var(--muted);font-size:15px}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-q span{transform:rotate(45deg)}
+footer{border-top:1px solid var(--border);padding:32px 0 24px;margin-top:20px;color:var(--muted);font-size:14px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;margin-bottom:24px}
+.footer-grid h4{color:var(--text);font-size:15px;margin-bottom:12px}
+.footer-grid a{display:block;color:var(--muted);margin-bottom:8px;font-size:14px}
+.footer-grid a:hover{color:var(--text)}
+.socials{display:flex;gap:10px;margin-top:14px}
+.socials a{width:40px;height:40px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.socials a:hover{background:var(--card-hover)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--border);padding-top:18px;font-size:13px}
 .wa-float{position:fixed;bottom:20px;right:20px;background:#10B981;color:#fff;padding:14px 18px;border-radius:100px;font-weight:700;font-size:14px;box-shadow:0 10px 30px rgba(16,185,129,.4);z-index:99}
-
-@media(max-width:900px){.bento{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.hero h1{font-size:36px}.nav-links{display:none}}
+@media(max-width:900px){
+  .bento,.testi-grid,.price-grid{grid-template-columns:1fr}
+  .why-grid,.footer-grid{grid-template-columns:1fr}
+  .hero{padding-top:120px}.hero h1{font-size:36px}
+  .nav-links,.nav .btn-primary{display:none}
+  .hamburger{display:flex;align-items:center;justify-content:center}
+  .why-list{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
 <header>
   <div class="container nav">
-    <a href="#" class="logo">DIBRA<i>.</i></a>
+    <a href="#top" class="logo">
+      <svg width="38" height="38" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#3B82F6"/><path d="M32 10c-9 0-15 6.5-15 14.5 0 11 15 24.5 15 24.5s15-13.5 15-24.5C47 16.5 41 10 32 10z" fill="white"/><text x="32" y="36" font-family="Arial, sans-serif" font-size="20" font-weight="900" fill="#3B82F6" text-anchor="middle">D</text></svg>
+      <span>DIBRA</span>
+    </a>
     <nav class="nav-links">
       <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
       <a href="#why">Why DIBRA</a>
-      <a href="#process">Process</a>
       <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="https://wa.me/256732166463?text=Hi%20DIBRA,%20I%20want%20to%20get%20started">Get Started →</a>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a class="btn btn-primary btn-sm" href="https://wa.me/256732166463?text=Hi%20DIBRA%2C%20I%20want%20to%20get%20started%20with%20a%20website%20for%20my%20business">Get Started</a>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#work" onclick="closeMenu()">Our Work</a>
+    <a href="#why" onclick="closeMenu()">Why DIBRA</a>
+    <a href="#pricing" onclick="closeMenu()">Pricing</a>
+    <a href="#faq" onclick="closeMenu()">FAQ</a>
+    <a href="https://wa.me/256732166463?text=Hi%20DIBRA%2C%20I%20want%20to%20get%20started" style="color:#fff;font-weight:700">Get Started on WhatsApp →</a>
   </div>
 </header>
 
-<main class="container">
+<main class="container" id="top">
   <section class="hero">
-    <div class="hero-badge"><b>● Available in Uganda</b> Kamuli • Jinja • Kampala</div>
+    <div class="hero-badge"><span style="color:#10B981">● Available Now</span> Kamuli • Jinja • Kampala</div>
     <h1>We Make Ugandan Businesses <span>Look Big Online.</span></h1>
     <p>DIBRA builds fast websites, puts you on Google Maps, and grows your brand on social media. One team, everything you need to get more customers.</p>
     <div class="hero-btns">
-      <a class="btn btn-primary" href="https://wa.me/256732166463?text=Hi%20DIBRA,%20I%20want%20a%20website%20for%20my%20business">Get My Website →</a>
-      <a class="btn btn-ghost" href="#services">View Services</a>
+      <a class="btn btn-primary" href="https://wa.me/256732166463?text=Hi%20DIBRA%2C%20I%20want%20a%20website%20for%20my%20business.%20Please%20send%20me%20the%20packages">Get My Website →</a>
+      <a class="btn btn-ghost" href="#work">See Our Work</a>
     </div>
-    <div class="trust">
-      <span>⚡ <b>Ready in 3 Days</b></span>
-      <span>✅ <b>No Monthly Fees</b></span>
-      <span>📱 <b>Works On Any Phone</b></span>
-      <span>⭐ <b>Trusted in Kamuli</b></span>
-    </div>
+    <div class="trust"><span>⚡ <b>Ready in 3 Days</b></span><span>✅ <b>No Monthly Fees</b></span><span>📱 <b>Works On Any Phone</b></span><span>⭐ <b>Trusted in Kamuli</b></span></div>
+    <div class="pay-badges"><span class="mtn">MTN MoMo Accepted</span><span class="airtel">Airtel Money Accepted</span><span>Bank Transfer Accepted</span></div>
   </section>
 
   <section class="section" id="services">
-    <div class="section-head">
-      <div class="eyebrow">Our Services</div>
-      <h2>Everything Your Business Needs To Grow</h2>
-      <p>Three services. One affordable package. No confusion, no hidden costs.</p>
-    </div>
-
+    <div class="section-head"><div class="eyebrow">Our Services</div><h2>Everything Your Business Needs To Grow</h2><p>Three services. One affordable package. No confusion, no hidden costs.</p></div>
     <div class="bento">
       <article class="card featured">
-        <div class="icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <h3>Web Designing</h3>
-        <p>Your business, beautifully presented on phone and computer. Customers see your prices and WhatsApp you in one tap.</p>
-        <ul>
-          <li>1-page fast website</li>
-          <li>WhatsApp order button</li>
-          <li>Photos, price list & location</li>
-          <li>Hosted on Cloudflare</li>
-        </ul>
-        <div class="price">
-          <div class="price-val">150,000 UGX<small>One-time • From</small></div>
-          <a class="link" href="https://wa.me/256732166463?text=I%20want%20Web%20Designing%20-%20150k">Order →</a>
-        </div>
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Web Designing</h3><p>Your business, beautifully presented on phone and computer. Customers see your prices and WhatsApp you in one tap.</p>
+        <ul><li>1-page fast website</li><li>WhatsApp order button</li><li>Photos, price list & location</li><li>Hosted on Cloudflare</li></ul>
+        <div class="price"><div class="price-val">150,000 UGX<small>One-time • From</small></div><a class="link" href="https://wa.me/256732166463?text=Hi%20DIBRA%2C%20I%20want%20the%20WEB%20DESIGN%20package%20-%20150k%20UGX">Order →</a></div>
       </article>
-
       <article class="card">
-        <div class="icon green">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h3>Google Maps Business Setup</h3>
-        <p>When someone searches “salon near me” or “hardware in Kamuli”, your business shows up first on Google Maps.</p>
-        <ul>
-          <li>Google Business Profile setup</li>
-          <li>Correct name, phone & hours</li>
-          <li>Photos & reviews setup</li>
-          <li>Map pin in right location</li>
-        </ul>
-        <div class="price">
-          <div class="price-val">80,000 UGX<small>One-time • From</small></div>
-          <a class="link" href="https://wa.me/256732166463?text=I%20want%20Google%20Maps%20Setup%20-%2080k">Order →</a>
-        </div>
+        <div class="icon green"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Google Maps Business Setup</h3><p>When someone searches “salon near me” or “hardware in Kamuli”, your business shows up first on Google Maps.</p>
+        <ul><li>Google Business Profile setup</li><li>Correct name, phone & hours</li><li>Photos & reviews setup</li><li>Map pin in right location</li></ul>
+        <div class="price"><div class="price-val">80,000 UGX<small>One-time • From</small></div><a class="link" href="https://wa.me/256732166463?text=Hi%20DIBRA%2C%20I%20want%20the%20GOOGLE%20MAPS%20SETUP%20-%2080k%20UGX">Order →</a></div>
       </article>
-
       <article class="card">
-        <div class="icon purple">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h3>Social Media Marketing</h3>
-        <p>We make your Facebook, TikTok and Instagram look professional, so customers trust you before they even call.</p>
-        <ul>
-          <li>Page setup & branding</li>
-          <li>Post designs & captions</li>
-          <li>WhatsApp & bio optimization</li>
-          <li>Content plan for 30 days</li>
-        </ul>
-        <div class="price">
-          <div class="price-val">100,000 UGX<small>One-time • From</small></div>
-          <a class="link" href="https://wa.me/256732166463?text=I%20want%20Social%20Media%20Marketing%20-%20100k">Order →</a>
-        </div>
+        <div class="icon purple"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3>Social Media Marketing</h3><p>We make your Facebook, TikTok and Instagram look professional, so customers trust you before they even call.</p>
+        <ul><li>Page setup & branding</li><li>Post designs & captions</li><li>WhatsApp & bio optimization</li><li>Content plan for 30 days</li></ul>
+        <div class="price"><div class="price-val">100,000 UGX<small>One-time • From</small></div><a class="link" href="https://wa.me/256732166463?text=Hi%20DIBRA%2C%20I%20want%20the%20SOCIAL%20MEDIA%20package%20-%20100k%20UGX">Order →</a></div>
       </article>
     </div>
   </section>
 
-  <section class="section" id="why">
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="eyebrow">Why Choose DIBRA</div>
-        <h3>Built For Ugandan Businesses, Not For Big Companies</h3>
-        <div class="why-list">
-          <div class="why-item"><h4>⚡ Fast Delivery</h4><p>Your website ready in 3 days, not 3 weeks.</p></div>
-          <div class="why-item"><h4>💰 Affordable</h4><p>One-time payment. No monthly fees. No surprises.</p></div>
-          <div class="why-item"><h4>📱 Phone-First</h4><p>Designed for customers using cheap phones and low data.</p></div>
-          <div class="why-item"><h4>🤝 Local Support</h4><p>Talk to us directly on WhatsApp in English or Lusoga.</p></div>
-        </div>
-      </div>
-      <div class="cta-banner" id="process">
-        <h3>Ready To Grow Your Business?</h3>
-        <p>Send us your business name on WhatsApp. We reply with a free plan and price. No pressure.</p>
-        <a class="btn" href="https://wa.me/256732166463?text=Hi%20DIBRA,%20I%20want%20to%20start">Start On WhatsApp →</a>
-        <small>Response in under 1 hour • Mon - Sat, 8am - 8pm</small>
-        <div style="margin-top:22px;border-top:1px solid rgba(255,255,255,.2);padding-top:18px;font-size:14px;color:#fff">
-          <b>All 3 Services Bundle:</b> Website + Google Maps + Social Media<br>
-          <span style="font-size:24px;font-weight:800">250,000 UGX</span> <span style="text-decoration:line-through;opacity:.7">330,000 UGX</span> • Save 80k
-        </div>
-      </div>
+  <section class="section" id="work" style="padding-top:0">
+    <div class="section-head"><div class="eyebrow">Our Work</div><h2>Real Samples For Real Ugandan Businesses</h2><p>These are the kind of results you get. Your business could be next.</p></div>
+    <div class="bento">
+      <article class="card work-card">
+        <div class="work-top salon">KAMULI<br>MODERN SALON</div>
+        <div class="work-body"><span class="badge-live">● LIVE PREVIEW</span><h3>Kamuli Modern Salon Website</h3><p>Salon in Kamuli Town. Price list, hairstyles gallery, booking via WhatsApp. Customers now book without calling.</p><div class="work-meta">Web Designing • Kamuli • +38% bookings</div></div>
+      </article>
+      <article class="card work-card">
+        <div class="work-top hardware">JINJA<br>AUTO HARDWARE</div>
+        <div class="work-body"><span class="badge-maps">📍 GOOGLE MAPS</span><h3>Jinja Auto Hardware - Maps Ranking</h3><p>Hardware shop was invisible on Google. We set up profile, photos, reviews. Now shows up for “hardware near me” in Jinja.</p><div class="work-meta">Google Maps Setup • Jinja • Top 3 on Maps</div></div>
+      </article>
+      <article class="card work-card">
+        <div class="work-top cafe">KAMPALA<br>CAFE SOCIAL</div>
+        <div class="work-body"><span class="badge-social">✦ SOCIAL BRANDING</span><h3>Kampala Cafe Social Branding</h3><p>Cafe needed to look premium. New Instagram, Facebook, TikTok branding + 30 days of post designs. Followers doubled.</p><div class="work-meta">Social Media • Kampala • 2x Followers</div></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials" style="padding-top:0">
+    <div class="section-head"><div class="eyebrow">Testimonials</div><h2>What Business Owners Say About DIBRA</h2></div>
+    <div class="testi-grid">
+      <article class="card testi"><div class="stars">★★★★★</div><p>“I thought websites were for big companies. DIBRA made mine in 3 days for 150k. Now customers find my salon on Google and book on WhatsApp. Best money I spent this year.”</p><div class="testi-person"><div class="avatar" style="background:#DB2777">NM</div><div><b>Nakato Mary</b><span>Owner, Kamuli Modern Salon - Kamuli</span></div></div></article>
+      <article class="card testi"><div class="stars">★★★★★</div><p>“My hardware was not on Google Maps at all. After DIBRA, people from Jinja Town now call me asking for directions. I get 3-4 new customers every week from Maps alone.”</p><div class="testi-person"><div class="avatar" style="background:#EA580C">JM</div><div><b>John Mukisa</b><span>Owner, Jinja Auto Hardware - Jinja</span></div></div></article>
+      <article class="card testi"><div class="stars">★★★★★</div><p>“They did my website, Google Maps, and Instagram together for 250k. Everything looks professional. My cafe looks like a big brand now. Customers trust us more.”</p><div class="testi-person"><div class="avatar" style="background:#0F766E">AS</div><div><b>Akello Sarah</b><span>Owner, Kampala Cafe - Kampala</span></div></div></article>
     </div>
   </section>
 
   <section class="section" id="pricing" style="padding-top:0">
-    <div class="section-head">
-      <div class="eyebrow">Simple Process</div>
-      <h2>From WhatsApp To Live In 3 Steps</h2>
+    <div class="section-head"><div class="eyebrow">Pricing</div><h2>Affordable. One-Time. No Hidden Fees.</h2><p>Pay once, your website is yours. Pay with MTN MoMo or Airtel Money.</p></div>
+    <div class="price-grid">
+      <article class="card price-card"><h3>Web Designing</h3><div class="amount">150,000 UGX<small>One-time payment</small></div><ul style="text-align:left"><li>1-Page Website</li><li>WhatsApp Button</li><li>Photos & Prices</li><li>Ready in 3 Days</li></ul><a class="btn btn-ghost" style="width:100%" href="https://wa.me/256732166463?text=Hi%20DIBRA%2C%20I%20want%20WEB%20DESIGN%20-%20150k">Choose Web Design</a></article>
+      <article class="card price-card"><h3>Google Maps</h3><div class="amount">80,000 UGX<small>One-time payment</small></div><ul style="text-align:left"><li>Business Profile</li><li>Map Pin Setup</li><li>Photos & Reviews</li><li>Verification Help</li></ul><a class="btn btn-ghost" style="width:100%" href="https://wa.me/256732166463?text=Hi%20DIBRA%2C%20I%20want%20GOOGLE%20MAPS%20SETUP%20-%2080k">Choose Maps</a></article>
+      <article class="card price-card"><h3>Social Media</h3><div class="amount">100,000 UGX<small>One-time payment</small></div><ul style="text-align:left"><li>Page Setup</li><li>Branding & Bio</li><li>Post Designs</li><li>30-Day Plan</li></ul><a class="btn btn-ghost" style="width:100%" href="https://wa.me/256732166463?text=Hi%20DIBRA%2C%20I%20want%20SOCIAL%20MEDIA%20-%20100k">Choose Social</a></article>
+      <article class="card price-card popular"><h3>⭐ ALL-IN-ONE BUNDLE</h3><div class="amount">250,000 UGX<small>Save 80,000 UGX • Was 330k</small></div><ul style="text-align:left"><li>Website + Maps + Social</li><li>Everything Above</li><li>Priority Support</li><li>1 Free Update</li></ul><a class="btn btn-primary" style="width:100%" href="https://wa.me/256732166463?text=Hi%20DIBRA%2C%20I%20want%20the%20ALL-IN-ONE%20BUNDLE%20-%20250k%20UGX">Choose Bundle - Best Value</a></article>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;text-align:center">
-      <div class="card"><h3>1. WhatsApp Us</h3><p>Send business name, photos, prices. We send you a plan.</p></div>
-      <div class="card"><h3>2. We Build</h3><p>We design, set up Maps, and prepare your social pages in 3 days.</p></div>
-      <div class="card"><h3>3. You Go Live</h3><p>You approve, you pay, we publish. Customers start finding you.</p></div>
-    </div>
+    <div class="bundle-note"><b>Payment:</b> MTN MoMo & Airtel Money Accepted • You pay 50% to start, 50% when you approve your website. No hidden charges.</div>
   </section>
-</main>
 
-<footer>
-  <div class="container footer-flex">
-    <div><b style="color:#fff">DIBRA.</b> — Kamuli | Jinja | Kampala, Uganda</div>
-    <div>WhatsApp: +256 732 166 463 • © 2026 DIBRA</div>
-  </div>
-</footer>
-
-<a class="wa-float" href="https://wa.me/256732166463?text=Hi%20DIBRA,%20I%20want%20to%20start">💬 WhatsApp Us</a>
-
-</body>
-  </html>
+  <section class="section" id="why" style="padding-top:0">
+    <div class="why-grid">
+      <div class="why-card"><div class="eyebrow">Why Choose DIBRA</div><h3>Built For Ugandan Businesses, Not For Big Companies</h3><div class="why-list"><div class="why-item"><h4>⚡ Fast Delivery</h4><p>Your website ready in 3 days, not 3 weeks.</p></div><div class="why-item"><h4>💰 Affordable</h4><p>One-time payment. No monthly fees. No surprises.</p></div><div class="why-item"><h4>📱 Phone-First</h4><p>Designed for customers using cheap phones and low data.</p></div><div class="why-item"><h4>🤝 Local Support</h4><p>Talk to
