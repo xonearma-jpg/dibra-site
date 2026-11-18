@@ -1,22 +1,470 @@
+const HTML_CONTENT = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIBRA - Web Design, Google Maps & Social Media Marketing in Kampala, Uganda</title>
+<meta name="description" content="DIBRA builds websites, sets up Google Maps Business profiles, and grows brands on social media for Ugandan businesses in Kampala, Uganda.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://checkout.flutterwave.com/v3.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: { colors: { ink:'#0F172A', paper:'#F8FAFC', emerald2:'#10B981', emeraldHover:'#059669', amber2:'#F59E0B' }, fontFamily: { head:['Plus Jakarta Sans','sans-serif'], body:['Inter','sans-serif'] } } } }
+</script>
+<style>
+*{ -webkit-tap-highlight-color:transparent }
+body{font-family:Inter,system-ui,sans-serif;background:#F8FAFC;color:#0F172A}
+h1,h2,h3,.font-head{font-family:'Plus Jakarta Sans',sans-serif}
+.glass{backdrop-filter:blur(14px);background:rgba(255,255,255,.85)}
+.pulse{animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.45)}70%{box-shadow:0 0 0 10px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.bundle-glow{box-shadow:0 0 0 2px #10B981,0 20px 40px -12px rgba(16,185,129,.35)}
+.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}
+.drawer{transition:transform .35s cubic-bezier(.2,.9,.3,1),opacity .25s}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-body{max-height:220px}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-icon{transition:transform .25s}
+input:focus{outline:2px solid #10B981;outline-offset:1px}
+</style>
+</head>
+<body class="font-body antialiased">
+
+<!-- STICKY GLASS NAVBAR -->
+<header class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-200/70">
+<div class="max-w-6xl mx-auto px-4 h-[64px] flex items-center justify-between">
+<a href="#" class="font-head font-extrabold text-[26px] tracking-tight">DIBRA<span class="text-emerald-500">.</span></a>
+<div class="hidden md:flex gap-6 text-[14px] font-medium text-slate-600">
+  <a href="#services">Services</a>
+  <a href="#calculator">ROI Calculator</a>
+  <a href="#work">Our Work</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#faq">FAQ</a>
+</div>
+<a href="https://wa.me/256732166463?text=Hi%20DIBRA!%20I%20want%20a%20website%20for%20my%20business%20in%20Kampala." target="_blank" class="pulse bg-emerald-500 hover:bg-emerald-600 text-white text-[13px] md:text-sm font-bold px-4 py-2.5 rounded-full flex items-center gap-2">💬 WhatsApp Us</a>
+</div>
+</header>
+
+<main class="pt-[64px]">
+
+<!-- HERO SECTION -->
+<section class="max-w-6xl mx-auto px-4 pt-8 md:pt-14 pb-6">
+<div class="grid md:grid-cols-2 gap-8 items-center">
+<div>
+<div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-[12px] font-bold px-3 py-1.5 rounded-full">⭐ ⭐ ⭐ ⭐ ⭐ <span>Trusted in Kampala, Uganda</span></div>
+<h1 class="font-head font-extrabold text-[36px] leading-[1.05] md:text-[54px] mt-4">We Build Websites That <span class="text-emerald-500">Bring Customers</span> To Your Business</h1>
+<p class="text-slate-600 text-[16px] md:text-[18px] leading-relaxed mt-4">We help Ugandan businesses in Kampala get more customers with professional websites, Google Maps visibility, and social media that actually sells.</p>
+<div class="flex flex-wrap gap-3 mt-6">
+<button onclick="openCheckout('All 3 Services Bundle',250000)" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-full shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02]">Claim Bundle - 250k →</button>
+<a href="#calculator" class="bg-white border border-slate-200 font-bold px-6 py-3.5 rounded-full hover:bg-slate-50 transition-all">Estimate ROI ↓</a>
+</div>
+<div class="flex items-center gap-3 mt-6 text-[13px] text-slate-500"><div class="flex -space-x-2"><div class="w-8 h-8 rounded-full bg-emerald-100 border-2 border-white flex items-center justify-center text-[12px]">👩🏾</div><div class="w-8 h-8 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-[12px]">👨🏾</div><div class="w-8 h-8 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-[12px]">👩🏾</div></div><span><b class="text-slate-800">120+ businesses</b> in Kampala trust DIBRA</span></div>
+</div>
+
+<!-- INTERACTIVE PREVIEW MOCKUP -->
+<div class="relative">
+<div class="bg-white rounded-[24px] border border-slate-200 shadow-xl shadow-slate-200/60 p-4">
+<div class="flex gap-2 mb-3"><span class="w-2.5 h-2.5 rounded-full bg-red-400"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span></div>
+<div class="bg-slate-50 rounded-2xl p-4 flex gap-4">
+<div class="flex-1">
+<div class="flex items-center gap-2"><span class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold">K</span><div><p class="font-bold text-[14px] leading-none">Kampala Hardware Ltd</p><p class="text-[11px] text-slate-500 mt-1">⭐ 4.9 • Hardware Store • Kampala</p></div></div>
+<div class="mt-3 bg-emerald-50 border border-emerald-100 rounded-xl p-3 text-[12px]"><p class="font-bold text-emerald-700">📍 Found on Google Maps</p><p class="text-slate-600 mt-1">“Kampala hardware near me” → Your business shows first</p></div>
+<div class="flex gap-2 mt-3"><span class="bg-slate-900 text-white text-[11px] px-3 py-1.5 rounded-full">Call Now</span><span class="bg-white border text-[11px] px-3 py-1.5 rounded-full">Directions</span></div>
+</div>
+<div class="w-[110px] shrink-0">
+<div class="bg-slate-900 rounded-[18px] p-2 text-white"><div class="bg-white text-slate-900 rounded-[12px] p-2 text-center"><p class="text-[10px] font-bold">YOUR WEBSITE</p><p class="text-[11px] font-extrabold leading-tight mt-1">We Build Websites That Sell</p><div class="bg-emerald-500 text-white text-[10px] font-bold py-1.5 rounded-full mt-2">WhatsApp Us →</div></div><p class="text-[9px] text-center text-slate-400 mt-1.5">Opens fast on phone • 3G friendly</p></div>
+</div>
+</div>
+<div class="flex justify-between mt-3 text-[12px]"><span class="bg-emerald-50 text-emerald-700 font-bold px-2.5 py-1 rounded-full">✓ Live in 2-5 days</span><span class="bg-amber-50 text-amber-700 font-bold px-2.5 py-1 rounded-full">🔥 Save 80k with Bundle</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- INTERACTIVE ROI CALCULATOR WIDGET -->
+<section id="calculator" class="max-w-6xl mx-auto px-4 py-8">
+<div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-[24px] p-6 md:p-10 shadow-xl border border-slate-800">
+<div class="max-w-2xl mx-auto text-center">
+<span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[12px] font-bold px-3 py-1.5 rounded-full">📈 Growth Simulator</span>
+<h2 class="font-head font-extrabold text-[26px] md:text-[34px] mt-3">Calculate Your Potential Revenue Growth</h2>
+<p class="text-slate-300 text-[14px] mt-2">See how a professional DIBRA digital presence scales your monthly customer acquisition in Kampala.</p>
+</div>
+
+<div class="grid md:grid-cols-2 gap-8 mt-8 items-center bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-[14px] font-semibold mb-2">
+<span>Estimated Monthly Website Visitors</span>
+<span id="visitorsVal" class="text-emerald-400 font-bold">500</span>
+</div>
+<input type="range" id="visitorsRange" min="100" max="5000" step="50" value="500" class="w-full accent-emerald-500 cursor-pointer" oninput="updateROI()">
+</div>
+<div>
+<div class="flex justify-between text-[14px] font-semibold mb-2">
+<span>Average Customer Value (UGX)</span>
+<span id="valueVal" class="text-emerald-400 font-bold">50,000 UGX</span>
+</div>
+<input type="range" id="valueRange" min="10000" max="500000" step="10000" value="50000" class="w-full accent-emerald-500 cursor-pointer" oninput="updateROI()">
+</div>
+</div>
+
+<div class="bg-slate-900/80 border border-slate-700 rounded-xl p-6 text-center flex flex-col justify-center">
+<p class="text-[13px] text-slate-400 uppercase tracking-wider font-semibold">Projected Monthly Revenue Boost</p>
+<div id="projectedRevenue" class="font-head font-extrabold text-[32px] md:text-[40px] text-emerald-400 mt-2">750,000 UGX</div>
+<p class="text-[12px] text-slate-400 mt-2">Based on typical 3% conversion lift from optimized Google Maps & Mobile Web UX.</p>
+<button onclick="openCheckout('All 3 Services Bundle',250000)" class="mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-full text-[14px] transition-all">Capture This Revenue - Claim Bundle →</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES (BENTO GRID) -->
+<section id="services" class="max-w-6xl mx-auto px-4 py-10">
+<div class="text-center">
+<h2 class="font-head font-extrabold text-[28px] md:text-[36px]">Everything Your Business Needs To Grow</h2>
+<p class="text-slate-500 mt-2">Transparent pricing. No hidden fees. 50% deposit to start.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+  <div class="bg-white rounded-[24px] border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300 group">
+    <div>
+      <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-[22px] group-hover:scale-110 transition-transform">🌐</div>
+      <h3 class="font-head font-bold text-[22px] mt-4">Web Designing</h3>
+      <p class="text-slate-500 text-[14px] leading-relaxed mt-2">A modern, fast, mobile-friendly website that makes your business look big and trustworthy — with WhatsApp button, services, photos & contact form.</p>
+      <ul class="text-[13px] text-slate-600 space-y-2 mt-4">
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Up to 5 pages • Mobile-first</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> WhatsApp chat integration</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Embedded Google Maps</li>
+      </ul>
+    </div>
+    <div class="mt-6 pt-4 border-t border-slate-100">
+      <div class="flex items-baseline justify-between mb-4">
+        <span class="font-head font-extrabold text-[24px]">150,000 UGX</span>
+        <span class="text-slate-400 text-[12px]">one-time</span>
+      </div>
+      <button onclick="openCheckout('Web Designing',150000)" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-full transition-all">Order Web Design →</button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-[24px] border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300 group">
+    <div>
+      <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-[22px] group-hover:scale-110 transition-transform">📍</div>
+      <h3 class="font-head font-bold text-[22px] mt-4">Google Maps Business Setup</h3>
+      <p class="text-slate-500 text-[14px] leading-relaxed mt-2">We put your business on Google Maps so customers in Kampala find you when they search “near me”. Includes photos & reviews setup.</p>
+      <ul class="text-[13px] text-slate-600 space-y-2 mt-4">
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Appear on Google Search & Maps</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Reviews & professional photos</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> One-tap Call & Directions</li>
+      </ul>
+    </div>
+    <div class="mt-6 pt-4 border-t border-slate-100">
+      <div class="flex items-baseline justify-between mb-4">
+        <span class="font-head font-extrabold text-[24px]">80,000 UGX</span>
+        <span class="text-slate-400 text-[12px]">one-time</span>
+      </div>
+      <button onclick="openCheckout('Google Maps Business Setup',80000)" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-full transition-all">Order Google Maps →</button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-[24px] border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300 group">
+    <div>
+      <div class="w-12 h-12 rounded-2xl bg-amber-400 text-white flex items-center justify-center text-[22px] group-hover:scale-110 transition-transform">📱</div>
+      <h3 class="font-head font-bold text-[22px] mt-4">Social Media Marketing</h3>
+      <p class="text-slate-500 text-[14px] leading-relaxed mt-2">Professional Facebook & TikTok setup, posts, and ads to get more customers. We manage your page for you consistently.</p>
+      <ul class="text-[13px] text-slate-600 space-y-2 mt-4">
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Facebook & TikTok setup</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Weekly custom branded posts</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Direct customer messaging flow</li>
+      </ul>
+    </div>
+    <div class="mt-6 pt-4 border-t border-slate-100">
+      <div class="flex items-baseline justify-between mb-4">
+        <span class="font-head font-extrabold text-[24px]">100,000 UGX</span>
+        <span class="text-slate-400 text-[12px]">per month</span>
+      </div>
+      <button onclick="openCheckout('Social Media Marketing',100000)" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-full transition-all">Order Social Media →</button>
+    </div>
+  </div>
+</div>
+
+<!-- BUNDLE -->
+<div class="bundle-glow bg-slate-900 text-white rounded-[24px] p-6 md:p-8 mt-6 relative overflow-hidden">
+<div class="absolute top-4 right-4 bg-amber-400 text-slate-900 text-[12px] font-extrabold px-3 py-1.5 rounded-full rotate-2">🔥 MOST POPULAR • Save 80k</div>
+<div class="grid md:grid-cols-[1.2fr_.8fr] gap-6 items-center">
+<div>
+<h3 class="font-head font-extrabold text-[24px] md:text-[28px]">All-In-One Growth Bundle</h3>
+<p class="text-slate-300 text-[14px] mt-2">Website + Google Maps + Social Media. Everything in one package. The smartest way to dominate your market in Kampala.</p>
+<div class="flex items-center gap-3 mt-4"><span class="text-[22px] text-slate-400 line-through">330,000 UGX</span><span class="font-head font-extrabold text-[32px] text-emerald-400">250,000 UGX</span><button onclick="alert('Savings Breakdown:\\n\\nWeb Designing: 150,000 UGX\\nGoogle Maps: 80,000 UGX\\nSocial Media: 100,000 UGX\\nTotal if bought separately: 330,000 UGX\\n\\nBundle Price: 250,000 UGX\\nYOU SAVE: 80,000 UGX')" class="text-[12px] bg-white/10 px-2.5 py-1 rounded-full hover:bg-white/20">ⓘ See savings breakdown</button></div>
+</div>
+<div class="bg-white/10 rounded-2xl p-4 border border-white/10">
+<p class="text-[13px] font-bold">What you get:</p>
+<ul class="text-[13px] text-slate-200 space-y-1 mt-2">
+  <li>✓ Complete Website (150k value)</li>
+  <li>✓ Google Maps Setup (80k value)</li>
+  <li>✓ 1 Month Social Media (100k value)</li>
+</ul>
+<button onclick="openCheckout('All 3 Services Bundle',250000)" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-full mt-4 transition-all hover:scale-[1.02]">Claim Bundle - 250k →</button>
+<p class="text-center text-[11px] text-slate-400 mt-2">Pay 50% deposit (125k) to start today</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="max-w-6xl mx-auto px-4 py-6">
+<h2 class="font-head font-extrabold text-[26px] text-center">How It Works</h2>
+<div class="grid grid-cols-3 gap-3 md:gap-6 mt-6 text-center">
+<div class="bg-white rounded-2xl border p-4"><div class="text-[24px]">1️⃣</div><p class="font-bold text-[14px] mt-2">Pick & Pay</p><p class="text-slate-500 text-[12px] mt-1">Choose service, pay with MoMo in 30 sec</p></div>
+<div class="bg-white rounded-2xl border p-4"><div class="text-[24px]">2️⃣</div><p class="font-bold text-[14px] mt-2">We Build</p><p class="text-slate-500 text-[12px] mt-1">We build in 2-5 days, send preview</p></div>
+<div class="bg-white rounded-2xl border p-4"><div class="text-[24px]">3️⃣</div><p class="font-bold text-[14px] mt-2">You Grow</p><p class="text-slate-500 text-[12px] mt-1">Customers find & call you daily</p></div>
+</div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="max-w-6xl mx-auto px-4 py-8">
+<h2 class="font-head font-extrabold text-[26px]">Recent Work in Kampala</h2>
+<div class="grid md:grid-cols-3 gap-4 mt-5">
+<div class="bg-white rounded-2xl border overflow-hidden"><div class="h-[140px] bg-gradient-to-br from-emerald-400 to-slate-900 flex items-center justify-center text-white font-head font-extrabold text-[20px] p-4 text-center">Kampala Boutique</div><div class="p-4"><p class="font-bold text-[15px]">Boutique Website + Instagram</p><p class="text-slate-500 text-[13px] mt-1">Kampala • Fashion • +40% WhatsApp orders</p></div></div>
+<div class="bg-white rounded-2xl border overflow-hidden"><div class="h-[140px] bg-gradient-to-br from-amber-400 to-slate-900 flex items-center justify-center text-white font-head font-extrabold text-[20px] p-4 text-center">Ntinda Hardware</div><div class="p-4"><p class="font-bold text-[15px]">Google Maps + Website</p><p class="text-slate-500 text-[13px] mt-1">Ntinda, Kampala • Now #1 on “hardware near me”</p></div></div>
+<div class="bg-white rounded-2xl border overflow-hidden"><div class="h-[140px] bg-gradient-to-br from-slate-700 to-emerald-500 flex items-center justify-center text-white font-head font-extrabold text-[20px] p-4 text-center">Kawempe Salon</div><div class="p-4"><p class="font-bold text-[15px]">TikTok + Booking Page</p><p class="text-slate-500 text-[13px] mt-1">Kawempe, Kampala • Fully booked weekends</p></div></div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="max-w-6xl mx-auto px-4 py-8">
+<h2 class="font-head font-extrabold text-[26px] text-center">Loved by Kampala Businesses</h2>
+<p class="text-center text-slate-500 text-[14px] mt-1">Swipe →</p>
+<div class="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory mt-5 pb-2">
+<div class="min-w-[85%] md:min-w-0 snap-center bg-white rounded-2xl border p-5"><p class="text-amber-400 text-[14px]">⭐⭐⭐⭐⭐</p><p class="text-[14px] leading-relaxed mt-2">“DIBRA built my website in 3 days. Now customers find me on Google. My sales went up.”</p><div class="flex items-center gap-3 mt-4"><span class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">👩🏾</span><div><p class="font-bold text-[14px]">Sarah - Boutique</p><p class="text-[12px] text-slate-500">Kampala • Verified Client ✓</p></div></div></div>
+<div class="min-w-[85%] md:min-w-0 snap-center bg-white rounded-2xl border p-5"><p class="text-amber-400 text-[14px]">⭐⭐⭐⭐⭐</p><p class="text-[14px] leading-relaxed mt-2">“Google Maps setup was fast. People now call me directly from Maps. Worth every shilling.”</p><div class="flex items-center gap-3 mt-4"><span class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">👨🏾</span><div><p class="font-bold text-[14px]">Musa - Hardware</p><p class="text-[12px] text-slate-500">Ntinda, Kampala • Verified Client ✓</p></div></div></div>
+<div class="min-w-[85%] md:min-w-0 snap-center bg-white rounded-2xl border p-5"><p class="text-amber-400 text-[14px]">⭐⭐⭐⭐⭐</p><p class="text-[14px] leading-relaxed mt-2">“They handle my Facebook page. I get new clients every week from their posts.”</p><div class="flex items-center gap-3 mt-4"><span class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center">👩🏾</span><div><p class="font-bold text-[14px]">Grace - Salon</p><p class="text-[12px] text-slate-500">Kawempe, Kampala • Verified Client ✓</p></div></div></div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="max-w-3xl mx-auto px-4 py-8">
+<h2 class="font-head font-extrabold text-[26px] text-center">Frequently Asked Questions</h2>
+<div class="space-y-3 mt-6">
+<div class="faq-item bg-white rounded-2xl border overflow-hidden"><button onclick="this.parentElement.classList.toggle('open')" class="w-full flex justify-between items-center p-4 text-left font-bold text-[15px]">How fast will my website be ready? <span class="faq-icon text-emerald-500 text-[22px]">+</span></button><div class="faq-body px-4"><p class="text-slate-500 text-[14px] pb-4">2-5 working days after your 50% deposit. We send you a preview link first.</p></div></div>
+<div class="faq-item bg-white rounded-2xl border overflow-hidden"><button onclick="this.parentElement.classList.toggle('open')" class="w-full flex justify-between items-center p-4 text-left font-bold text-[15px]">Do I need to pay full amount upfront? <span class="faq-icon text-emerald-500 text-[22px]">+</span></button><div class="faq-body px-4"><p class="text-slate-500 text-[14px] pb-4">No. Pay 50% Deposit to Start, then 50% balance when your project is done and you approve it.</p></div></div>
+<div class="faq-item bg-white rounded-2xl border overflow-hidden"><button onclick="this.parentElement.classList.toggle('open')" class="w-full flex justify-between items-center p-4 text-left font-bold text-[15px]">How do I pay? <span class="faq-icon text-emerald-500 text-[22px]">+</span></button><div class="faq-body px-4"><p class="text-slate-500 text-[14px] pb-4">MTN MoMo, Airtel Money, Visa/Mastercard or Bank Transfer. Click Order and pay securely via Flutterwave.</p></div></div>
+<div class="faq-item bg-white rounded-2xl border overflow-hidden"><button onclick="this.parentElement.classList.toggle('open')" class="w-full flex justify-between items-center p-4 text-left font-bold text-[15px]">Will I be able to update my website? <span class="faq-icon text-emerald-500 text-[22px]">+</span></button><div class="faq-body px-4"><p class="text-slate-500 text-[14px] pb-4">Yes. We teach you on WhatsApp, or we update for you at a small fee.</p></div></div>
+</div>
+<div class="bg-slate-900 text-white rounded-2xl p-6 text-center mt-8"><h3 class="font-head font-bold text-[20px]">Ready to grow your business in Kampala?</h3><p class="text-slate-300 text-[14px] mt-1">Start today. Pay 50% deposit. We build in 2-5 days.</p><button onclick="openCheckout('All 3 Services Bundle',250000)" class="bg-emerald-500 hover:bg-emerald-600 font-bold px-6 py-3 rounded-full mt-4">Claim Bundle - 250k →</button></div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-white mt-6">
+<div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+<div><p class="font-head font-extrabold text-[24px]">DIBRA<span class="text-emerald-400">.</span></p><p class="text-slate-400 text-[14px] mt-2">Web Design, Google Maps & Social Media for businesses in Kampala, Uganda.</p></div>
+<div><p class="font-bold">Services</p><p class="text-slate-400 text-[14px] mt-2 leading-relaxed">Web Designing - 150k UGX<br>Google Maps Setup - 80k UGX<br>Social Media - 100k UGX/mo<br>Bundle - 250k UGX</p></div>
+<div><p class="font-bold">Contact</p><p class="text-slate-400 text-[14px] mt-2">📍 Kampala, Uganda<br>📞 +256 732 166 463<br>💬 WhatsApp: +256 732 166 463</p><a href="https://wa.me/256732166463" class="inline-block bg-emerald-500 font-bold text-[14px] px-4 py-2 rounded-full mt-3">Chat on WhatsApp →</a></div>
+</div>
+<div class="border-t border-white/10 text-center text-[12px] text-slate-500 py-4">© 2026 DIBRA • Kampala, Uganda • All rights reserved.</div>
+</footer>
+
+<!-- CHECKOUT MODAL -->
+<div id="checkoutModal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true" aria-label="Checkout">
+<div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]" onclick="closeCheckout()"></div>
+<div id="drawer" class="drawer absolute left-0 right-0 bottom-0 md:left-auto md:right-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:w-[520px] md:mx-auto bg-white rounded-t-[24px] md:rounded-[24px] max-h-[92vh] overflow-y-auto p-6 translate-y-full md:translate-y-0 md:scale-95 opacity-0">
+<div class="flex justify-between items-start"><div><h2 class="font-head font-extrabold text-[22px]">Pay & Start Now</h2><p class="text-slate-500 text-[13px]">Secure payment via Flutterwave • Kampala, Uganda</p></div><button onclick="closeCheckout()" class="w-9 h-9 rounded-full bg-slate-100 text-[18px]">×</button></div>
+<div id="checkoutForm">
+<div class="mt-4"><label class="text-[13px] font-bold">Service</label><input id="serviceName" readonly class="w-full mt-1 bg-slate-50 border rounded-xl px-3 py-3 font-bold"></div>
+<div class="grid grid-cols-2 bg-slate-100 rounded-full p-1 mt-4" role="group" aria-label="Payment type">
+<button id="btn50" onclick="setPayType(50)" class="bg-emerald-500 text-white font-bold text-[13px] py-2.5 rounded-full">50% Deposit to Start</button>
+<button id="btn100" onclick="setPayType(100)" class="font-bold text-[13px] py-2.5 rounded-full text-slate-600">100% Full Payment</button>
+</div>
+<div class="bg-slate-50 border rounded-2xl p-4 mt-4 space-y-2 text-[14px]"><div class="flex justify-between"><span class="text-slate-500">Service Price</span><b id="fullPrice">0 UGX</b></div><div class="flex justify-between"><span class="text-slate-500" id="payLabel">You Pay Now (50%)</span><b id="payNow" class="text-emerald-600 text-[18px]">0 UGX</b></div><div class="flex justify-between"><span class="text-slate-500">Balance Later</span><b id="balance">0 UGX</b></div></div>
+<div class="space-y-3 mt-4">
+<input id="businessName" placeholder="Business Name * e.g. Kampala Hardware" class="w-full border rounded-xl px-3 py-3 text-[15px]">
+<input id="clientName" placeholder="Client Full Name * e.g. Nyanzi Jackson" class="w-full border rounded-xl px-3 py-3 text-[15px]">
+<input id="phone" value="+256" placeholder="WhatsApp Phone * +256..." class="w-full border rounded-xl px-3 py-3 text-[15px]">
+<input id="email" type="email" placeholder="Email Address * you@gmail.com" class="w-full border rounded-xl px-3 py-3 text-[15px]">
+</div>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="bg-amber-400 text-slate-900 text-[11px] font-extrabold px-2.5 py-1.5 rounded-full">🟡 MTN MoMo</span>
+<span class="bg-red-500 text-white text-[11px] font-extrabold px-2.5 py-1.5 rounded-full">🔴 Airtel Money</span>
+<span class="bg-slate-900 text-white text-[11px] font-extrabold px-2.5 py-1.5 rounded-full">💳 Visa / Mastercard</span>
+<span class="bg-slate-100 text-slate-700 text-[11px] font-extrabold px-2.5 py-1.5 rounded-full">🏦 Bank Transfer</span>
+</div>
+<button id="payBtn" onclick="payWithFlutterwave()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 rounded-full mt-4">Pay <span id="payBtnAmount"></span> UGX Securely →</button>
+<p class="text-center text-[11px] text-slate-400 mt-2">You will get MTN MoMo / Airtel USSD prompt or Card / Bank Transfer. Do not close page until payment completes.</p>
+</div>
+<div id="receiptScreen" class="hidden text-center pt-2">
+<div class="text-[44px]">✅</div><h3 class="font-head font-extrabold text-[22px] text-emerald-600">Payment Successful!</h3><p class="text-slate-500 text-[14px] mt-1">Thank you! Your order is confirmed. We will start building immediately.</p>
+<div class="bg-slate-50 border border-dashed rounded-2xl p-4 text-left text-[14px] mt-4 space-y-2"><div class="flex justify-between"><span>Reference ID</span><b id="rRef"></b></div><div class="flex justify-between"><span>Service</span><b id="rService"></b></div><div class="flex justify-between"><span>Amount Paid</span><b id="rAmount"></b></div><div class="flex justify-between"><span>Business</span><b id="rBusiness"></b></div><div class="flex justify-between"><span>Payment Type</span><b id="rType"></b></div></div>
+<a id="waLink" target="_blank" class="block bg-[#25D366] font-bold py-3.5 rounded-full mt-4">Send Receipt on WhatsApp →</a>
+<button onclick="closeCheckout()" class="w-full border font-bold py-3 rounded-full mt-2">Done</button>
+</div>
+</div>
+</div>
+
+<script>
+const FLW_PUBLIC_KEY = "FLWPUBK_TEST-xxxxxxxxxxxxxxxx-X";
+let currentService="", currentPrice=0, payPercent=50;
+
+function updateROI(){
+  const visitors = parseInt(document.getElementById('visitorsRange').value);
+  const avgValue = parseInt(document.getElementById('valueRange').value);
+  document.getElementById('visitorsVal').textContent = visitors.toLocaleString();
+  document.getElementById('valueVal').textContent = avgValue.toLocaleString() + " UGX";
+  const estimatedNewCustomers = visitors * 0.03;
+  const projectedRevenue = Math.round(estimatedNewCustomers * avgValue);
+  document.getElementById('projectedRevenue').textContent = projectedRevenue.toLocaleString() + " UGX";
+}
+updateROI();
+
+function openCheckout(service,price){
+  currentService=service; currentPrice=price;
+  document.getElementById('serviceName').value=service;
+  const m=document.getElementById('checkoutModal'); m.classList.remove('hidden');
+  requestAnimationFrame(()=>{ const d=document.getElementById('drawer'); d.style.transform='translateY(0)'; d.style.opacity='1'; if(window.innerWidth>=768) d.style.transform='translateY(-50%) scale(1)'; });
+  document.getElementById('checkoutForm').classList.remove('hidden'); document.getElementById('receiptScreen').classList.add('hidden');
+  setPayType(payPercent); document.body.style.overflow='hidden';
+}
+function closeCheckout(){ const d=document.getElementById('drawer'); d.style.opacity='0'; if(window.innerWidth>=768) d.style.transform='translateY(-50%) scale(.95)'; else d.style.transform='translateY(100%)'; setTimeout(()=>{ document.getElementById('checkoutModal').classList.add('hidden'); document.body.style.overflow=''; },300); }
+function setPayType(p){
+  payPercent=p;
+  document.getElementById('btn50').className = p===50 ? "bg-emerald-500 text-white font-bold text-[13px] py-2.5 rounded-full" : "font-bold text-[13px] py-2.5 rounded-full text-slate-600";
+  document.getElementById('btn100').className = p===100 ? "bg-emerald-500 text-white font-bold text-[13px] py-2.5 rounded-full" : "font-bold text-[13px] py-2.5 rounded-full text-slate-600";
+  const payNow=Math.round(currentPrice*p/100); const bal=currentPrice-payNow;
+  document.getElementById('fullPrice').textContent=currentPrice.toLocaleString()+" UGX";
+  document.getElementById('payLabel').textContent=p===50?"You Pay Now (50%)":"You Pay Now (100%)";
+  document.getElementById('payNow').textContent=payNow.toLocaleString()+" UGX";
+  document.getElementById('balance').textContent=bal.toLocaleString()+" UGX";
+  document.getElementById('payBtnAmount').textContent=payNow.toLocaleString();
+}
+function payWithFlutterwave(){
+  const business=document.getElementById('businessName').value.trim();
+  const name=document.getElementById('clientName').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const email=document.getElementById('email').value.trim();
+  if(!business||!name||!phone||!email){ alert("Please fill Business Name, Full Name, WhatsApp Phone and Email."); return; }
+  if(!email.includes("@")){ alert("Please enter a valid email."); return; }
+  const amount=Math.round(currentPrice*payPercent/100);
+  const tx_ref="DIBRA-UG-"+Date.now()+"-"+Math.floor(Math.random()*10000);
+  const btn=document.getElementById('payBtn'); btn.disabled=true; btn.textContent="Opening Secure Payment...";
+  FlutterwaveCheckout({
+    public_key: FLW_PUBLIC_KEY, tx_ref: tx_ref, amount: amount, currency: "UGX",
+    payment_options: "mobilemoneyuganda,card,banktransfer",
+    customer:{email:email, phone_number:phone, name:name},
+    customizations:{title:"DIBRA - "+currentService, description: currentService+" - "+business+" - "+(payPercent===50?"50% Deposit":"100% Full"), logo:"https://dibra-site.xonearma.workers.dev/logo.png"},
+    callback: async function(data){
+      btn.disabled=false; setPayType(payPercent);
+      try{
+        const res=await fetch("/api/verify-payment",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({transaction_id:data.transaction_id,tx_ref:tx_ref,service:currentService,amount:amount,payPercent:payPercent,business:business,name:name,phone:phone,email:email})});
+        const result=await res.json();
+        if(result.success){ showReceipt(tx_ref,currentService,amount,business,payPercent); }
+        else{ alert("Payment received but verification pending. Send reference "+tx_ref+" on WhatsApp +256 732 166 463."); }
+      }catch(e){ alert("Payment may have succeeded. Send reference "+tx_ref+" on WhatsApp to confirm."); }
+    },
+    onclose:function(){ btn.disabled=false; setPayType(payPercent); }
+  });
+}
+function showReceipt(ref,service,amount,business,percent){
+  document.getElementById('checkoutForm').classList.add('hidden');
+  document.getElementById('receiptScreen').classList.remove('hidden');
+  document.getElementById('rRef').textContent=ref;
+  document.getElementById('rService').textContent=service;
+  document.getElementById('rAmount').textContent=amount.toLocaleString()+" UGX";
+  document.getElementById('rBusiness').textContent=business;
+  document.getElementById('rType').textContent=percent===50?"50% Deposit":"100% Full Payment";
+  const msg=encodeURIComponent("Hello DIBRA! ✅ I just paid "+amount.toLocaleString()+" UGX for "+service+" ("+(percent===50?"50% Deposit":"100% Full")+").\\nMy Business: "+business+"\\nReference: "+ref+"\\nPlease start my project.");
+  document.getElementById('waLink').href="https://wa.me/256732166463?text="+msg;
+}
+</script>
+</body>
+</html>`;
+
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     const url = new URL(request.url);
+
+    // 1. Handle Flutterwave Payment Verification Endpoint
     if (url.pathname === "/api/verify-payment" && request.method === "POST") {
       try {
         const body = await request.json();
-        const { transaction_id } = body;
-        if (!transaction_id) return Response.json({ success: false }, { status: 400 });
-        const verifyRes = await fetch(`https://api.flutterwave.com/v3/transactions/${transaction_id}/verify`, {
-          headers: { Authorization: `Bearer ${env.FLW_SECRET_KEY}` }
-        });
-        const verifyData = await verifyRes.json();
-        if (verifyData.status === "success" && verifyData.data?.status === "successful") {
-          console.log("✅ NEW DIBRA ORDER:", JSON.stringify(body));
-          return Response.json({ success: true, data: verifyData.data });
+        const { transaction_id, tx_ref, amount, service, payPercent, business, name, phone, email } = body;
+
+        if (!transaction_id || !amount) {
+          return new Response(JSON.stringify({ success: false, error: "Missing transaction details" }), {
+            status: 400,
+            headers: { "Content-Type": "application/json" }
+          });
         }
-        return Response.json({ success: false }, { status: 400 });
-      } catch (e) { return Response.json({ success: false, message: e.message }, { status: 500 }); }
+
+        // Verify directly with Flutterwave using your Worker secret FLW_SECRET_KEY
+        const flwResponse = await fetch(
+          `https://api.flutterwave.com/v3/transactions/${encodeURIComponent(transaction_id)}/verify`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${env.FLW_SECRET_KEY}`,
+              "Content-Type": "application/json"
+            }
+          }
+        );
+
+        const flwData = await flwResponse.json();
+
+        // Confirm status is successful, currency is UGX, and paid amount matches expected amount
+        const isVerified =
+          flwData.status === "success" &&
+          flwData.data &&
+          flwData.data.status === "successful" &&
+          flwData.data.currency === "UGX" &&
+          Number(flwData.data.amount) >= Number(amount);
+
+        if (isVerified) {
+          // Optional: Save order record to Cloudflare KV if bound as env.ORDERS_KV
+          if (env.ORDERS_KV) {
+            await env.ORDERS_KV.put(
+              tx_ref,
+              JSON.stringify({
+                transaction_id,
+                tx_ref,
+                service,
+                amount,
+                payPercent,
+                business,
+                name,
+                phone,
+                email,
+                verifiedAt: new Date().toISOString()
+              })
+            );
+          }
+
+          return new Response(JSON.stringify({ success: true, tx_ref }), {
+            status: 200,
+            headers: { "Content-Type": "application/json" }
+          });
+        }
+
+        return new Response(JSON.stringify({ success: false, error: "Payment verification failed" }), {
+          status: 400,
+          headers: { "Content-Type": "application/json" }
+        });
+      } catch (err) {
+        return new Response(JSON.stringify({ success: false, error: err.message }), {
+          status: 500,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
     }
-    return env.ASSETS ? env.ASSETS.fetch(request) : new Response("DIBRA site - deploy with Assets", { status: 404 });
+
+    // 2. Serve the HTML Landing Page for GET requests
+    if (request.method === "GET") {
+      return new Response(HTML_CONTENT, {
+        status: 200,
+        headers: {
+          "Content-Type": "text/html;charset=UTF-8",
+          "Cache-Control": "public, max-age=300"
+        }
+      });
+    }
+
+    return new Response("Method Not Allowed", { status: 405 });
   }
 };
