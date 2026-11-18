@@ -8,31 +8,40 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="ambient-glow" aria-hidden="true"></div>
+  <!-- Ambient Mesh Background -->
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-ball ball-1"></div>
+    <div class="mesh-ball ball-2"></div>
+    <div class="mesh-ball ball-3"></div>
+  </div>
 
-  <!-- Sticky Navigation -->
+  <!-- Modern Floating Header -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="#" class="brand">
-        <span class="brand-dot"></span>
-        <span>DIBRA</span>
+        <!-- Logo Image Integration -->
+        <div class="brand-logo-wrap">
+          <img src="908746838_1129144080108796_8139333490262825991_n.jpg" alt="Dibra Logo" class="brand-logo-img" />
+        </div>
+        <span class="brand-text">DIBRA <span class="brand-sub">STUDIO</span></span>
       </a>
 
       <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
-        <a href="#work">Selected Work</a>
+        <a href="#work">Case Studies</a>
         <a href="#services">Services</a>
-        <a href="#store">Store</a>
+        <a href="#store">Digital Store</a>
         <a href="#faq">FAQ</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="#store" class="btn btn-ghost">Digital Kits</a>
-        <a href="#contact" class="btn btn-primary">Start a Project</a>
+        <a href="#store" class="btn btn-glass">Storefront</a>
+        <a href="#contact" class="btn btn-primary">Start Project</a>
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false">
+          <span></span>
           <span></span>
           <span></span>
         </button>
@@ -41,237 +50,239 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero-container">
-        <div class="badge">
-          <span class="badge-pulse"></span>
-          <span>Q4 Booking Open • 2 Studio Slots Remaining</span>
-        </div>
-
-        <h1 class="hero-title">
-          Digital products & websites <br />
-          <span class="text-gradient">engineered to convert.</span>
-        </h1>
-
-        <p class="hero-subtitle">
-          We craft razor-sharp web experiences, scalable brand identities, and plug-and-play creator systems built for speed, authority, and revenue.
-        </p>
-
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary btn-lg">Book Your Build</a>
-          <a href="#work" class="btn btn-secondary btn-lg">View Selected Work</a>
-        </div>
-
-        <!-- Studio Proof Strip -->
-        <div class="metrics-strip">
-          <div class="metric-item">
-            <span class="metric-value">48–96h</span>
-            <span class="metric-label">Avg. Launch Time</span>
+    <!-- Hero Section: Asymmetric Modern Split Layout -->
+    <section class="hero-new">
+      <div class="container hero-grid-layout">
+        <div class="hero-content">
+          <div class="pill-badge">
+            <span class="badge-dot"></span>
+            <span>Global Digital Studio • Q4 Slots Live</span>
           </div>
-          <div class="metric-divider"></div>
-          <div class="metric-item">
-            <span class="metric-value">99/100</span>
-            <span class="metric-label">Lighthouse Speed</span>
-          </div>
-          <div class="metric-divider"></div>
-          <div class="metric-item">
-            <span class="metric-value">100%</span>
-            <span class="metric-label">Code Ownership</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Selected Work / Case Studies -->
-    <section class="features" id="work">
-      <div class="container">
-        <div class="section-header">
-          <h2>Selected Studio Work</h2>
-          <p>A glimpse into the systems and interfaces we ship for ambitious brands.</p>
-        </div>
-
-        <div class="bento-grid">
-          <article class="bento-card work-card">
-            <div class="work-preview preview-fintech">
-              <span class="work-tag">FinTech Landing Page</span>
-            </div>
-            <div class="work-info">
-              <h3>Kova Pay Infrastructure</h3>
-              <p>High-contrast dark UI and interactive conversion funnel that boosted demo signups by 42%.</p>
-            </div>
-          </article>
-
-          <article class="bento-card work-card">
-            <div class="work-preview preview-saas">
-              <span class="work-tag">AI SaaS Platform</span>
-            </div>
-            <div class="work-info">
-              <h3>NexaFlow Analytics</h3>
-              <p>Minimalist product showcase with sub-second page loads and streamlined onboarding.</p>
-            </div>
-          </article>
-
-          <article class="bento-card work-card">
-            <div class="work-preview preview-creator">
-              <span class="work-tag">Creator Storefront</span>
-            </div>
-            <div class="work-info">
-              <h3>Veloce Design Systems</h3>
-              <p>Automated digital product hub generating recurring passive sales from social traffic.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="features" id="services">
-      <div class="container">
-        <div class="section-header">
-          <h2>Studio Services</h2>
-          <p>Productized, fixed-scope engagements. Click any service to select it instantly.</p>
-        </div>
-
-        <div class="bento-grid">
-          <article class="bento-card bento-large featured-card">
-            <div>
-              <div class="card-top-row">
-                <span class="card-icon">🚀</span>
-                <span class="pill-tag">Most Popular</span>
-              </div>
-              <h3>Custom Website Launch — $150</h3>
-              <p>A bespoke, mobile-first website engineered for speed and conversions. Includes copy refinement, custom dark/light UI, lead capture routing, and live deployment.</p>
-            </div>
-            <div style="margin-top: 24px;">
-              <a href="#contact" class="btn btn-primary select-service" data-service="Custom Website Launch ($150)">Select & Reserve Build →</a>
-            </div>
-          </article>
-
-          <article class="bento-card">
-            <div>
-              <div class="card-icon">🎨</div>
-              <h3>Brand & UI Makeover — $90</h3>
-              <p>Complete visual overhaul of your existing site or landing page with modern typography, spacing, and color architecture.</p>
-            </div>
-            <div style="margin-top: 24px;">
-              <a href="#contact" class="btn btn-secondary select-service" data-service="Brand & UI Makeover ($90)">Select Makeover →</a>
-            </div>
-          </article>
-
-          <article class="bento-card">
-            <div>
-              <div class="card-icon">📈</div>
-              <h3>Conversion & UX Audit — $50</h3>
-              <p>A comprehensive teardown of your current funnel with an actionable blueprint to plug leaks and increase buyer trust.</p>
-            </div>
-            <div style="margin-top: 24px;">
-              <a href="#contact" class="btn btn-secondary select-service" data-service="Conversion & UX Audit ($50)">Select Audit →</a>
-            </div>
-          </article>
-
-          <article class="bento-card bento-large">
-            <div>
-              <div class="card-icon">🤝</div>
-              <h3>Dedicated Growth Partner — $300/mo</h3>
-              <p>Unlimited landing page iterations, continuous CRO testing, and priority engineering support on standby every month.</p>
-            </div>
-            <div style="margin-top: 24px;">
-              <a href="#contact" class="btn btn-secondary select-service" data-service="Dedicated Growth Partner ($300/mo)">Select Retainer →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Digital Storefront -->
-    <section class="features" id="store">
-      <div class="container">
-        <div class="section-header">
-          <h2>Digital Storefront</h2>
-          <p>Battle-tested templates and playbooks. Click any item to select it.</p>
-        </div>
-
-        <div class="bento-grid">
-          <article class="bento-card">
-            <div>
-              <div class="card-icon">📦</div>
-              <h3>Dark-Mode Studio UI Kit</h3>
-              <p>Clean, dependency-free HTML/CSS/JS architecture ready to deploy in under 10 minutes. <strong>$19</strong></p>
-            </div>
-            <div style="margin-top: 24px;">
-              <a href="#contact" class="btn btn-primary select-service" data-service="Digital Product: Dark-Mode Studio UI Kit ($19)">Select Kit — $19</a>
-            </div>
-          </article>
-
-          <article class="bento-card">
-            <div>
-              <div class="card-icon">📘</div>
-              <h3>High-Ticket Client Playbook</h3>
-              <p>Proven cold outreach frameworks, discovery call scripts, and pricing anchors to close $500+ deals. <strong>$15</strong></p>
-            </div>
-            <div style="margin-top: 24px;">
-              <a href="#contact" class="btn btn-primary select-service" data-service="Digital Product: High-Ticket Client Playbook ($15)">Select Playbook — $15</a>
-            </div>
-          </article>
-
-          <article class="bento-card">
-            <div>
-              <div class="card-icon">⚡</div>
-              <h3>Creator Launch OS</h3>
-              <p>End-to-end launch checklist and monetization roadmap for solo founders and digital studios. <strong>$9</strong></p>
-            </div>
-            <div style="margin-top: 24px;">
-              <a href="#contact" class="btn btn-primary select-service" data-service="Digital Product: Creator Launch OS ($9)">Select OS — $9</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive FAQ Section -->
-    <section class="features" id="faq">
-      <div class="container" style="max-width: 780px;">
-        <div class="section-header">
-          <h2>Frequently Asked Questions</h2>
-          <p>Everything you need to know before we start building.</p>
-        </div>
-
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary>How fast will my website be delivered?</summary>
-            <p>Most custom landing pages and studio sites go from kickoff to live deployment within 48 to 96 hours once we confirm your copy and goals.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Do I own the code and domain once it's finished?</summary>
-            <p>100%. You get full ownership of all source files, repositories, and assets with zero monthly platform lock-in fees.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>How do payments and project kickoffs work?</summary>
-            <p>Select your package below to message us directly on WhatsApp. We confirm your brief immediately, accept card or mobile transfers, and start building the same day.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Direct Booking / Order Section with Interactive Dropdown & Flexible Contact -->
-    <section class="cta-banner" id="contact">
-      <div class="container">
-        <div class="cta-box">
-          <h2>Ready to launch something sharp?</h2>
-          <p>Choose your service or product below, enter your contact, and connect instantly via WhatsApp.</p>
           
-          <form class="cta-form" id="order-form">
-            <!-- Dropdown selector so clients don't have to type services manually -->
-            <select id="selected-item" required style="width: 100%; padding: 13px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-primary); color: var(--text-primary); font-size: 0.95ln; outline: none; cursor: pointer;">
+          <h1 class="hero-headline">
+            We build digital assets that <span class="gradient-text">dominate markets.</span>
+          </h1>
+          
+          <p class="hero-desc">
+            Moving beyond local clutter. We engineer ultra-fast web architectures, high-converting SaaS interfaces, and scalable brand systems for ambitious global founders.
+          </p>
+
+          <div class="hero-action-row">
+            <a href="#contact" class="btn btn-primary btn-xl">Secure Your Build →</a>
+            <a href="#work" class="btn btn-outline btn-xl">Explore Case Studies</a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="stat-box">
+              <span class="stat-num">48-96h</span>
+              <span class="stat-lbl">Deployment Speed</span>
+            </div>
+            <div class="stat-sep"></div>
+            <div class="stat-box">
+              <span class="stat-num">$150</span>
+              <span class="stat-lbl">Fixed USD Pricing</span>
+            </div>
+            <div class="stat-sep"></div>
+            <div class="stat-box">
+              <span class="stat-num">100%</span>
+              <span class="stat-lbl">Client Ownership</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Visual Showcase Card -->
+        <div class="hero-visual-card">
+          <div class="visual-card-header">
+            <div class="mac-dots"><span></span><span></span><span></span></div>
+            <span class="url-bar">dibra.studio/engine</span>
+          </div>
+          <div class="visual-card-body">
+            <div class="preview-hero-badge">Live System Active</div>
+            <h3>Enterprise-Grade Web Engine</h3>
+            <p>Optimized for sub-second conversions, seamless mobile money & card checkout, and elite visual authority.</p>
+            <div class="mini-tags">
+              <span>Next.js UX</span>
+              <span>Tailwind Core</span>
+              <span>PesaPal Secure</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies / Selected Work -->
+    <section class="section-padded" id="work">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">PROVEN EXECUTION</span>
+          <h2>Selected Studio Work</h2>
+          <p>Real interfaces deployed for international startups and creators.</p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-thumb thumb-1">
+              <span class="project-tag">FinTech Infrastructure</span>
+            </div>
+            <div class="project-body">
+              <h3>Kova Pay Global</h3>
+              <p>High-contrast payment interface built for international cross-border transactions and mobile money synchronization.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-thumb thumb-2">
+              <span class="project-tag">AI SaaS Platform</span>
+            </div>
+            <div class="project-body">
+              <h3>NexaFlow Analytics</h3>
+              <p>Minimalist conversion funnel and dashboard architecture engineered for high user retention.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services & Pricing Section -->
+    <section class="section-padded" id="services">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">FLAT-RATE TRANSPARENCY</span>
+          <h2>Studio Services</h2>
+          <p>Zero hourly billing. Premium fixed-scope deliverables in USD.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="price-card featured-highlight">
+            <div class="price-header">
+              <span class="card-badge-top">Most Popular</span>
+              <h3>Custom Website Launch</h3>
+              <div class="price-tag">$150</div>
+            </div>
+            <p>A complete, lightning-fast website deployed live with bespoke UI, mobile optimization, and lead capture routing.</p>
+            <ul class="feature-checklist">
+              <li>✓ 48–96 Hour Rapid Delivery</li>
+              <li>✓ Mobile-First Responsive Design</li>
+              <li>✓ Direct WhatsApp & PesaPal Wireup</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary select-service" data-service="Custom Website Launch ($150)">Select & Reserve Build</a>
+          </div>
+
+          <div class="price-card">
+            <div class="price-header">
+              <h3>Brand & UI Makeover</h3>
+              <div class="price-tag">$90</div>
+            </div>
+            <p>Complete visual overhaul of your existing platform with modern typography, layout spacing, and color systems.</p>
+            <ul class="feature-checklist">
+              <li>✓ Modern Typography & Hierarchy</li>
+              <li>✓ Dark-Mode Aesthetic Upgrade</li>
+              <li>✓ Conversion Optimization</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline select-service" data-service="Brand & UI Makeover ($90)">Select Makeover</a>
+          </div>
+
+          <div class="price-card">
+            <div class="price-header">
+              <h3>Growth & UX Audit</h3>
+              <div class="price-tag">$50</div>
+            </div>
+            <p>Comprehensive teardown of your current funnel with a step-by-step action plan to turn visitors into buyers.</p>
+            <ul class="feature-checklist">
+              <li>✓ Deep UX & Speed Audit</li>
+              <li>✓ Actionable Fix Blueprint</li>
+              <li>✓ Conversion Rate Strategy</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline select-service" data-service="Conversion & UX Audit ($50)">Select Audit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital Storefront Section -->
+    <section class="section-padded" id="store">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">INSTANT ASSETS</span>
+          <h2>Digital Storefront</h2>
+          <p>Plug-and-play templates and playbooks. Buy once, use forever.</p>
+        </div>
+
+        <div class="store-grid">
+          <div class="store-card">
+            <div class="store-icon">📦</div>
+            <h3>Dark-Mode Studio UI Kit</h3>
+            <p>Ready-to-deploy HTML/CSS architecture for agencies and creators.</p>
+            <div class="store-footer">
+              <span class="item-price">$19</span>
+              <a href="#contact" class="btn btn-primary select-service" data-service="Digital Product: Dark-Mode Studio UI Kit ($19)">Get Access</a>
+            </div>
+          </div>
+
+          <div class="store-card">
+            <div class="store-icon">📘</div>
+            <h3>High-Ticket Client Playbook</h3>
+            <p>Exact cold outreach frameworks and sales scripts to close $500+ deals.</p>
+            <div class="store-footer">
+              <span class="item-price">$15</span>
+              <a href="#contact" class="btn btn-primary select-service" data-service="Digital Product: High-Ticket Client Playbook ($15)">Get Access</a>
+            </div>
+          </div>
+
+          <div class="store-card">
+            <div class="store-icon">⚡</div>
+            <h3>Creator Launch OS</h3>
+            <p>End-to-end roadmap and checklist for monetizing digital brands.</p>
+            <div class="store-footer">
+              <span class="item-price">$9</span>
+              <a href="#contact" class="btn btn-primary select-service" data-service="Digital Product: Creator Launch OS ($9)">Get Access</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="section-padded" id="faq">
+      <div class="container" style="max-width: 800px;">
+        <div class="section-title-wrap">
+          <span class="section-tag">CLARITY & TRUST</span>
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know about working with Dibra.</p>
+        </div>
+
+        <div class="faq-stack">
+          <details class="faq-box" open>
+            <summary>How fast are custom websites delivered?</summary>
+            <p>Most projects go from initial brief to live deployment within 48 to 96 hours once content and goals are confirmed.</p>
+          </details>
+          <details class="faq-box">
+            <summary>What payment methods do you accept?</summary>
+            <p>We accept secure payments via PesaPal (supporting MTN & Airtel Mobile Money as well as global Visa/Mastercard cards).</p>
+          </details>
+          <details class="faq-box">
+            <summary>Do I get full ownership of the code?</summary>
+            <p>100%. You receive complete ownership of all repositories and assets with zero monthly platform lock-ins.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conversion Booking Section -->
+    <section class="cta-section" id="contact">
+      <div class="container">
+        <div class="cta-card-modern">
+          <div class="cta-glow"></div>
+          <h2>Ready to elevate your digital presence?</h2>
+          <p>Select your service or product below and connect instantly with our studio via WhatsApp.</p>
+          
+          <form class="cta-form-modern" id="order-form">
+            <select id="selected-item" required class="form-input-box">
               <option value="" disabled selected>-- Select a Service or Product --</option>
               <optgroup label="Studio Services">
                 <option value="Custom Website Launch ($150)">Custom Website Launch — $150</option>
                 <option value="Brand & UI Makeover ($90)">Brand & UI Makeover — $90</option>
                 <option value="Conversion & UX Audit ($50)">Conversion & UX Audit — $50</option>
-                <option value="Dedicated Growth Partner ($300/mo)">Dedicated Growth Partner — $300/mo</option>
               </optgroup>
               <optgroup label="Digital Storefront">
                 <option value="Digital Product: Dark-Mode Studio UI Kit ($19)">Dark-Mode Studio UI Kit — $19</option>
@@ -280,10 +291,9 @@
               </optgroup>
             </select>
 
-            <!-- Flexible contact input accepting Email OR Phone / WhatsApp number -->
-            <input type="text" id="client-contact" placeholder="Your Email or Phone/WhatsApp Number (e.g. +256...)" required />
+            <input type="text" id="client-contact" class="form-input-box" placeholder="Your Email or WhatsApp Number (e.g. +256...)" required />
             
-            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 6px;">Continue to WhatsApp →</button>
+            <button type="submit" class="btn btn-primary btn-xl" style="width: 100%;">Connect via WhatsApp →</button>
           </form>
           <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
         </div>
@@ -291,15 +301,17 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <span class="brand-dot"></span>
-        <span>DIBRA</span>
-        <p>© 2026 Dibra Digital Studio. Engineered for speed.</p>
+  <!-- Modern Footer -->
+  <footer class="footer-modern">
+    <div class="container footer-flex">
+      <div class="footer-brand-info">
+        <div class="brand-logo-wrap small">
+          <img src="908746838_1129144080108796_8139333490262825991_n.jpg" alt="Dibra Logo" class="brand-logo-img" />
+        </div>
+        <span>DIBRA STUDIO</span>
+        <p>© 2026 Dibra Digital Studio. Engineered for high performance.</p>
       </div>
-      <div class="footer-links">
+      <div class="footer-nav-links">
         <a href="#work">Work</a>
         <a href="#services">Services</a>
         <a href="#store">Store</a>
