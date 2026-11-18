@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       formFeedback.textContent = `✓ Request received for "${item}"! Opening WhatsApp...`;
 
-      // ⚠️ Replace 256700000000 with your actual WhatsApp phone number
-      const phone = "256700000000"; 
+      // ⚠️ Replace 256732166463 with your actual WhatsApp phone number
+      const phone = "256732166463"; 
       const message = encodeURIComponent(`Hello Dibra! I would like to order: ${item}. My contact: ${contact}`);
       
       setTimeout(() => {
