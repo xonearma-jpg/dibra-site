@@ -1,368 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DIBRA | Client Agreement, Receipt & Fulfillment Hub</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-base: #131314;
-      --surface-1: #1E1F20;
-      --surface-2: #282A2C;
-      --border-subtle: rgba(255, 255, 255, 0.09);
-      --text-primary: #E3E3E3;
-      --text-secondary: #C4C7C5;
-      --accent-blue: #A8C7FA;
-      --accent-green: #81C995;
-      --accent-yellow: #FDD663;
-      --accent-glow: linear-gradient(135deg, #A8C7FA 0%, #D0BCFF 50%, #F2B8B5 100%);
-      --btn-text: #041E49;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-base);
-      color: var(--text-primary);
-      line-height: 1.6;
-      padding-bottom: 64px;
-    }
-
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 18px;
-    }
-
-    header {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border-subtle);
-      position: sticky;
-      top: 0;
-      background: rgba(19, 19, 20, 0.92);
-      backdrop-filter: blur(12px);
-      z-index: 100;
-    }
-
-    .nav-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .brand-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent-glow);
-    }
-
-    /* Navigation Tabs */
-    .tabs {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 16px 0;
-      scrollbar-width: none;
-    }
-
-    .tabs::-webkit-scrollbar {
-      display: none;
-    }
-
-    .tab-btn {
-      background: var(--surface-1);
-      color: var(--text-secondary);
-      border: 1px solid var(--border-subtle);
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .tab-btn.active {
-      background: var(--accent-blue);
-      color: var(--btn-text);
-      border-color: var(--accent-blue);
-    }
-
-    .panel {
-      display: none;
-      animation: fadeIn 0.25s ease;
-    }
-
-    .panel.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .card {
-      background: var(--surface-1);
-      border: 1px solid var(--border-subtle);
-      border-radius: 24px;
-      padding: 24px;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 1.35rem;
-      margin-bottom: 6px;
-    }
-
-    .sub {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 20px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    label {
-      display: block;
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      background: var(--surface-2);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-primary);
-      padding: 12px 14px;
-      border-radius: 14px;
-      font-size: 0.95rem;
-      outline: none;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--accent-blue);
-    }
-
-    .preview-box {
-      background: var(--bg-base);
-      border: 1px solid var(--border-subtle);
-      border-radius: 18px;
-      padding: 18px;
-      font-size: 0.9rem;
-      color: var(--text-primary);
-      white-space: pre-wrap;
-      margin-bottom: 16px;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 22px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.92rem;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: opacity 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--accent-blue);
-      color: var(--btn-text);
-    }
-
-    .btn-tonal {
-      background: var(--surface-2);
-      color: var(--text-primary);
-      border: 1px solid var(--border-subtle);
-    }
-
-    .btn-pill:hover {
-      opacity: 0.9;
-    }
-
-    /* Checklist Styling */
-    .check-group-title {
-      color: var(--accent-blue);
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin: 18px 0 10px;
-    }
-
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      background: var(--surface-2);
-      padding: 12px 16px;
-      border-radius: 14px;
-      margin-bottom: 8px;
-      cursor: pointer;
-      font-size: 0.92rem;
-    }
-
-    .check-item input {
-      width: 18px;
-      height: 18px;
-      margin-top: 2px;
-      accent-color: var(--accent-blue);
-    }
-
-    /* Flyer Cards */
-    .flyer-item {
-      background: var(--surface-2);
-      border: 1px solid var(--border-subtle);
-      border-radius: 18px;
-      padding: 18px;
-      margin-bottom: 14px;
-    }
-
-    .flyer-item h3 {
-      color: var(--accent-blue);
-      font-size: 1.05rem;
-      margin-bottom: 6px;
-    }
-
-    .flyer-item p {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      margin-bottom: 10px;
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--accent-green);
-      color: #041E49;
-      padding: 10px 22px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      display: none;
-      z-index: 999;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIBRA - Websites for Ugandan Businesses</title>
+<meta name="description" content="DIBRA builds fast, affordable websites for small businesses in Uganda. Get online in 3 days.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#f8f9fa;color:#111;line-height:1.6}
+a{text-decoration:none}
+.container{max-width:1100px;margin:auto;padding:0 20px}
+header{background:#0a0f1e;color:#fff;padding:18px 0;position:sticky;top:0;z-index:10}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:26px;font-weight:900;letter-spacing:1px}.logo span{color:#00d084}
+.btn{display:inline-block;background:#00d084;color:#000;font-weight:800;padding:14px 22px;border-radius:10px}
+.hero{background:#0a0f1e;color:#fff;padding:60px 0 70px;text-align:center}
+.hero h1{font-size:38px;line-height:1.2;max-width:700px;margin:0 auto 16px}
+.hero h1 span{color:#00d084}
+.hero p{color:#cbd5e1;max-width:600px;margin:0 auto 26px;font-size:17px}
+.hero .small{margin-top:14px;font-size:13px;color:#94a3b8}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.badge{background:#1e293b;padding:8px 14px;border-radius:20px;font-size:13px}
+.section{padding:55px 0}
+.section h2{text-align:center;font-size:30px;margin-bottom:10px}
+.section p.sub{text-align:center;color:#64748b;max-width:600px;margin:0 auto 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:#fff;padding:26px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+.card h3{margin-bottom:8px}
+.card p{color:#475569;font-size:15px}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.price{background:#fff;border:2px solid #e2e8f0;padding:28px;border-radius:18px;text-align:center}
+.price.popular{border-color:#00d084;background:#0a0f1e;color:#fff;transform:scale(1.02)}
+.price h3{font-size:20px}
+.price .amount{font-size:36px;font-weight:900;margin:12px 0}
+.price ul{list-style:none;text-align:left;margin:18px 0}
+.price li{padding:7px 0;border-bottom:1px solid #f1f5f9;font-size:15px}
+.price.popular li{border-color:#1e293b}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;text-align:center}
+.step-num{background:#00d084;color:#000;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;margin:0 auto 12px}
+footer{background:#0a0f1e;color:#94a3b8;text-align:center;padding:30px 0;font-size:14px}
+.wa-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:14px 18px;border-radius:50px;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,0.2);z-index:99}
+@media(max-width:600px){.hero h1{font-size:30px}}
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="container nav-wrap">
-      <div class="brand">
-        <span class="brand-dot"></span>
-        <span>DIBRA OPS HUB</span>
-      </div>
-      <span style="font-size: 0.82rem; color: var(--accent-blue);">+256 732 166 463</span>
+<header>
+  <div class="container nav">
+    <div class="logo">DIBRA<span>.</span></div>
+    <a class="btn" href="https://wa.me/256732166463?text=Hi%20DIBRA,%20I%20want%20a%20website%20for%20my%20business">WhatsApp Us</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Your Business Needs a Website. <span>We Build It In 3 Days.</span></h1>
+    <p>DIBRA makes fast, beautiful websites for shops, salons, restaurants, schools and churches in Uganda. Your customers can find you, see your prices, and WhatsApp you directly.</p>
+    <a class="btn" href="https://wa.me/256732166463?text=Hi,%20I%20want%20a%20website%20for%20my%20business">Get My Website - Start From 150k</a>
+    <div class="badges">
+      <div class="badge">✅ No Monthly Fees</div>
+      <div class="badge">⚡ Ready in 3 Days</div>
+      <div class="badge">📱 Works On Phone</div>
     </div>
-  </header>
+    <p class="small">Trusted by small businesses in Kamuli, Jinja & Kampala</p>
+  </div>
+</section>
 
-  <main class="container">
-    <div class="tabs">
-      <button class="tab-btn active" onclick="openTab('agreement', this)">1. Agreement & Receipt</button>
-      <button class="tab-btn" onclick="openTab('retainer', this)">2. Retainer Upsell</button>
-      <button class="tab-btn" onclick="openTab('maps', this)">3. Maps Checklist</button>
-      <button class="tab-btn" onclick="openTab('flyers', this)">4. 5-Flyer Prompts</button>
+<section class="section">
+  <div class="container">
+    <h2>What You Get From DIBRA</h2>
+    <p class="sub">Everything your business needs to look professional online.</p>
+    <div class="grid">
+      <div class="card"><h3>📱 1-Page Website</h3><p>Your business name, photos, services, prices, location and working hours - all on one clean page.</p></div>
+      <div class="card"><h3>💬 WhatsApp Button</h3><p>Customers tap one button and message you directly. No missed customers.</p></div>
+      <div class="card"><h3>📍 Google Maps + Location</h3><p>People can find your shop easily, even if they have never been to Kamuli before.</p></div>
+      <div class="card"><h3>⚡ Super Fast</h3><p>Hosted on Cloudflare. Loads fast even on low network and cheap phones.</p></div>
     </div>
+  </div>
+</section>
 
-    <!-- TAB 1: AGREEMENT & RECEIPT GENERATOR -->
-    <section id="agreement" class="panel active">
-      <div class="card">
-        <h2>Instant Client Agreement & Payment Receipt</h2>
-        <p class="sub">Fill in the client details below to generate a clean WhatsApp agreement and official deposit receipt.</p>
-
-        <div class="form-grid">
-          <div>
-            <label>Client / Business Name</label>
-            <input type="text" id="cName" placeholder="e.g., Mukono Prime Dental" oninput="updateDocs()">
-          </div>
-          <div>
-            <label>Client WhatsApp (with 256)</label>
-            <input type="tel" id="cPhone" placeholder="e.g., 256770000000" oninput="updateDocs()">
-          </div>
-          <div>
-            <label>Package Selected</label>
-            <select id="cPkg" onchange="updateDocs()">
-              <option value="Local Growth Pack (Maps + 1-Page Site + 5 Flyers)">Local Growth Pack (Maps + Site + 5 Flyers)</option>
-              <option value="Google Maps Optimization Only">Google Maps Optimization Only</option>
-              <option value="Custom Dark-Mode Landing Page">Custom Dark-Mode Landing Page</option>
-              <option value="Global Brand Lift (USD)">Global Brand Lift (USD)</option>
-            </select>
-          </div>
-          <div>
-            <label>Total Fee (e.g., 300,000 UGX)</label>
-            <input type="text" id="cTotal" value="300,000 UGX" oninput="updateDocs()">
-          </div>
-          <div>
-            <label>Deposit Paid Now</label>
-            <input type="text" id="cPaid" value="150,000 UGX" oninput="updateDocs()">
-          </div>
-          <div>
-            <label>Balance Due on Delivery</label>
-            <input type="text" id="cBal" value="150,000 UGX" oninput="updateDocs()">
-          </div>
-        </div>
-
-        <label>Live Agreement & Receipt Preview</label>
-        <div class="preview-box" id="docPreview"></div>
-
-        <div class="btn-row">
-          <button class="btn-pill btn-primary" onclick="sendWhatsApp('docPreview', 'cPhone')">Send to Client on WhatsApp</button>
-          <button class="btn-pill btn-tonal" onclick="copyText('docPreview')">Copy Text</button>
-        </div>
+<section class="section" style="background:#fff">
+  <div class="container">
+    <h2>Affordable Pricing - One Time Payment</h2>
+    <p class="sub">No hidden charges. You pay once, your website is yours.</p>
+    <div class="price-grid">
+      <div class="price">
+        <h3>STARTER</h3>
+        <div class="amount">150,000 UGX</div>
+        <p>For small shops & hustles</p>
+        <ul>
+          <li>✓ 1-Page Website</li>
+          <li>✓ WhatsApp Button</li>
+          <li>✓ Your Photos & Prices</li>
+          <li>✓ Ready in 3 Days</li>
+        </ul>
+        <a class="btn" style="background:#111;color:#fff" href="https://wa.me/256732166463?text=I%20want%20the%20STARTER%20package%20-%20150k">Choose Starter</a>
       </div>
-    </section>
+      <div class="price popular">
+        <h3>⭐ BUSINESS - MOST POPULAR</h3>
+        <div class="amount">250,000 UGX</div>
+        <p>For salons, restaurants, shops</p>
+        <ul>
+          <li>✓ Everything in Starter</li>
+          <li>✓ Price List / Menu</li>
+          <li>✓ Google Maps Location</li>
+          <li>✓ Facebook + TikTok Links</li>
+          <li>✓ 1 Free Update</li>
+        </ul>
+        <a class="btn" href="https://wa.me/256732166463?text=I%20want%20the%20BUSINESS%20package%20-%20250k">Choose Business</a>
+      </div>
+      <div class="price">
+        <h3>PREMIUM</h3>
+        <div class="amount">400,000 UGX</div>
+        <p>For schools, churches, companies</p>
+        <ul>
+          <li>✓ Everything in Business</li>
+          <li>✓ Up to 4 Pages</li>
+          <li>✓ Gallery + Testimonials</li>
+          <li>✓ Custom Domain (.com)</li>
+        </ul>
+        <a class="btn" style="background:#111;color:#fff" href="https://wa.me/256732166463?text=I%20want%20the%20PREMIUM%20package%20-%20400k">Choose Premium</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- TAB 2: MONTHLY RETAINER UPSELL SCRIPT -->
-    <section id="retainer" class="panel">
-      <div class="card">
-        <h2>Recurring Monthly Retainer Pitch</h2>
-        <p class="sub">Send this 7 days after delivering their project to turn a one-time buyer into recurring monthly income.</p>
+<section class="section" style="background:#fff">
+  <div class="container">
+    <h2>How It Works - 3 Simple Steps</h2>
+    <div class="steps">
+      <div><div class="step-num">1</div><h3>WhatsApp Us</h3><p>Send us your business name, photos and prices on WhatsApp.</p></div>
+      <div><div class="step-num">2</div><h3>We Build</h3><p>We build your website in 3 days and send you a preview link.</p></div>
+      <div><div class="step-num">3</div><h3>You Go Live</h3><p>You approve it, you pay, we publish it. Customers start finding you.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:30px">
+      <a class="btn" href="https://wa.me/256732166463?text=Hi,%20I%20want%20to%20start%20my%20website">Start Now On WhatsApp</a>
+    </div>
+  </div>
+</section>
 
-        <div class="form-grid">
-          <div>
-            <label>Client Business Name</label>
-            <input type="text" id="rName" placeholder="e.g., Mukono Prime Dental" oninput="updateRetainer()">
-          </div>
-          <div>
-            <label>Monthly Retainer Price</label>
-            <input type="text" id="rPrice" value="100,000 UGX / month" oninput="updateRetainer()">
-          </div>
-        </div>
+<footer>
+  <div class="container">
+    <p><strong style="color:#fff">DIBRA</strong> - Kamuli | Jinja | Kampala, Uganda</p>
+    <p>WhatsApp: +256 732 166 463 | Websites From 150k UGX</p>
+    <p style="margin-top:10px">© 2026 DIBRA. All Rights Reserved.</p>
+  </div>
+</footer>
 
-        <label>Ready-to-Send WhatsApp Pitch</label>
+<a class="wa-float" href="https://wa.me/256732166463?text=Hi,%20I%20want%20a%20website">💬 WhatsApp Us</a>
+
+</body>
+      </html>
