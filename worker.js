@@ -1,7 +1,5 @@
-// DIBRA Cloudflare Worker - Serves index.html + Verifies Flutterwave Payments
-// Env vars needed in Cloudflare Dashboard: FLW_SECRET_KEY, FLW_PUBLIC_KEY
-
-const FLW_VERIFY_URL = "https://api.flutterwave.com/v3/transactions/";
+// worker.js - DIBRA Cloudflare Worker
+// Serves index.html + verifies Flutterwave payments
 
 export default {
   async fetch(request, env, ctx) {
@@ -11,72 +9,37 @@ export default {
     if (url.pathname === "/api/verify-payment" && request.method === "POST") {
       try {
         const body = await request.json();
-        const { transaction_id, tx_ref, service, paid, payType, business, name, phone, email } = body;
+        const { transaction_id, tx_ref } = body;
 
         if (!transaction_id) {
-          return json({ success: false, message: "Missing transaction_id" }, 400);
+          return Response.json({ success: false, message: "No transaction_id" }, { status: 400 });
         }
 
-        // If secret key not set yet, return demo mode so frontend still shows receipt
-        if (!env.FLW_SECRET_KEY) {
-          return json({ success: true, demo: true, service, paid, reference: tx_ref, transaction_id });
-        }
-
-        // Verify with Flutterwave
-        const verifyRes = await fetch(`${FLW_VERIFY_URL}${transaction_id}/verify`, {
-          headers: { Authorization: `Bearer ${env.FLW_SECRET_KEY}`, "Content-Type": "application/json" }
+        // Verify with Flutterwave using SECRET KEY from env (never in frontend)
+        const verifyRes = await fetch(`https://api.flutterwave.com/v3/transactions/${transaction_id}/verify`, {
+          headers: { Authorization: `Bearer ${env.FLW_SECRET_KEY}` }
         });
         const verifyData = await verifyRes.json();
 
-        if (verifyData.status !== "success" || verifyData.data.status !== "successful") {
-          return json({ success: false, message: "Payment not successful on Flutterwave" }, 400);
+        if (verifyData.status === "success" && verifyData.data?.status === "successful") {
+          // LOG ORDER - You can forward to WhatsApp / Email / Google Sheet here
+          console.log("✅ NEW DIBRA ORDER:", JSON.stringify({ ...body, verified_amount: verifyData.data.amount, currency: verifyData.data.currency, flw_ref: verifyData.data.flw_ref }));
+
+          // Optional: Forward to your WhatsApp via any webhook you set later
+          // await fetch(env.ORDER_WEBHOOK_URL, { method: "POST", body: JSON.stringify(body) });
+
+          return Response.json({ success: true, data: verifyData.data });
+        } else {
+          return Response.json({ success: false, message: "Payment not successful" }, { status: 400 });
         }
-
-        // Security checks: amount + currency + tx_ref must match
-        const flw = verifyData.data;
-        if (flw.currency !== "UGX") {
-          return json({ success: false, message: "Currency mismatch" }, 400);
-        }
-        // Allow small tolerance, but log if mismatch
-        if (Math.abs(flw.amount - Number(paid)) > 1) {
-          console.log("Amount mismatch", flw.amount, paid);
-        }
-        if (flw.tx_ref !== tx_ref) {
-          console.log("Tx ref mismatch", flw.tx_ref, tx_ref);
-        }
-
-        // TODO: Save order to KV / D1 / Send email / WhatsApp API here
-        // For now we log it - you will see it in Cloudflare Logs
-        console.log("NEW DIBRA ORDER:", JSON.stringify({ service, paid, payType, business, name, phone, email, reference: tx_ref, transaction_id, flw_id: flw.id, date: new Date().toISOString() }));
-
-        // Optional: Forward to your WhatsApp via WhatsApp Cloud API if you add it later
-        // await ctx.waitUntil(sendToWhatsApp(...))
-
-        return json({
-          success: true,
-          service,
-          paid: flw.amount,
-          reference: tx_ref,
-          transaction_id: String(transaction_id)
-        });
-
-      } catch (err) {
-        return json({ success: false, message: err.message }, 500);
+      } catch (e) {
+        return Response.json({ success: false, message: e.message }, { status: 500 });
       }
     }
 
-    // --- Serve index.html ---
-    // If you use Workers Static Assets, this will serve index.html automatically.
-    // If you use plain Worker, put your HTML in ASSETS binding or fetch from KV.
-    // Simplest: use `env.ASSETS.fetch(request)` if Static Assets enabled.
-    if (env.ASSETS) {
-      return env.ASSETS.fetch(request);
-    }
-
-    return new Response("DIBRA Worker running. Enable Static Assets and set FLW_SECRET_KEY.", { headers: { "Content-Type": "text/plain" } });
+    // --- Serve index.html for all other routes ---
+    // In Cloudflare Workers with Assets, this will serve your static file.
+    // If you use Workers + Pages, just deploy index.html as static asset.
+    return env.ASSETS ? env.ASSETS.fetch(request) : new Response("DIBRA site - Please deploy with Assets. index.html missing.", { status: 404 });
   }
 };
-
-function json(obj, status = 200) {
-  return new Response(JSON.stringify(obj), { status, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
-    }
