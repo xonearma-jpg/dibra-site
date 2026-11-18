@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+const HTML_CONTENT = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -67,7 +67,7 @@ input:focus, range:focus{outline:2px solid #10B981;outline-offset:1px}
 
 <main class="pt-[68px]">
 
-<!-- HERO SECTION (High Attraction UI) -->
+<!-- HERO SECTION -->
 <section class="max-w-6xl mx-auto px-4 pt-10 md:pt-16 pb-10">
 <div class="grid md:grid-cols-2 gap-10 items-center">
 <div>
@@ -88,7 +88,7 @@ input:focus, range:focus{outline:2px solid #10B981;outline-offset:1px}
 </div>
 </div>
 
-<!-- INTERACTIVE PREVIEW MOCKUP (Glassmorphic Depth) -->
+<!-- INTERACTIVE PREVIEW MOCKUP -->
 <div class="relative">
 <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-[28px] blur-lg opacity-25 pulse"></div>
 <div class="relative bg-slate-900/90 rounded-[24px] border border-white/10 shadow-2xl p-5 backdrop-blur-xl">
@@ -109,7 +109,7 @@ input:focus, range:focus{outline:2px solid #10B981;outline-offset:1px}
 </div>
 </section>
 
-<!-- INTERACTIVE ROI CALCULATOR WIDGET (Trento / Modern SaaS UI) -->
+<!-- INTERACTIVE ROI CALCULATOR WIDGET -->
 <section id="calculator" class="max-w-6xl mx-auto px-4 py-10">
 <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white rounded-[28px] p-6 md:p-12 shadow-2xl border border-emerald-500/20 relative overflow-hidden">
 <div class="absolute -right-20 -top-20 w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -147,17 +147,14 @@ input:focus, range:focus{outline:2px solid #10B981;outline-offset:1px}
 </div>
 </section>
 
-<!-- SERVICES (Immersive Bento-Grid Architecture) -->
+<!-- SERVICES (BENTO GRID) -->
 <section id="services" class="max-w-6xl mx-auto px-4 py-12">
 <div class="text-center">
 <h2 class="font-head font-extrabold text-[30px] md:text-[38px] text-white">Elite Bento-Grid Service Architecture</h2>
 <p class="text-slate-400 mt-2">Transparent pricing. No hidden fees. 50% deposit to launch your project.</p>
 </div>
 
-<!-- Bento Grid -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-  
-  <!-- Card 1 -->
   <div class="glass-card glass-card-hover rounded-[24px] p-7 flex flex-col justify-between transition-all duration-300 group">
     <div>
       <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-[24px] group-hover:scale-110 transition-transform">🌐</div>
@@ -178,7 +175,6 @@ input:focus, range:focus{outline:2px solid #10B981;outline-offset:1px}
     </div>
   </div>
 
-  <!-- Card 2 -->
   <div class="glass-card glass-card-hover rounded-[24px] p-7 flex flex-col justify-between transition-all duration-300 group">
     <div>
       <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-[24px] group-hover:scale-110 transition-transform">📍</div>
@@ -199,7 +195,6 @@ input:focus, range:focus{outline:2px solid #10B981;outline-offset:1px}
     </div>
   </div>
 
-  <!-- Card 3 -->
   <div class="glass-card glass-card-hover rounded-[24px] p-7 flex flex-col justify-between transition-all duration-300 group">
     <div>
       <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-[24px] group-hover:scale-110 transition-transform">📱</div>
@@ -219,7 +214,6 @@ input:focus, range:focus{outline:2px solid #10B981;outline-offset:1px}
       <button onclick="openCheckout('Social Media Marketing',100000)" class="w-full bg-white/10 hover:bg-emerald-500 hover:text-slate-950 text-white font-bold py-3.5 rounded-full transition-all">Order Social Media →</button>
     </div>
   </div>
-
 </div>
 
 <!-- BUNDLE BANNER -->
@@ -229,7 +223,7 @@ input:focus, range:focus{outline:2px solid #10B981;outline-offset:1px}
 <div>
 <h3 class="font-head font-extrabold text-[26px] md:text-[32px]">All-In-One Growth Bundle</h3>
 <p class="text-slate-300 text-[15px] mt-2 leading-relaxed">Website + Google Maps + Social Media. Everything you need to completely dominate your market in Kampala with elite digital presentation.</p>
-<div class="flex items-center gap-4 mt-5"><span class="text-[22px] text-slate-400 line-through">330,000 UGX</span><span class="font-head font-extrabold text-[34px] text-emerald-400">250,000 UGX</span><button onclick="alert('Savings Breakdown:\n\nWeb Designing: 150,000 UGX\nGoogle Maps: 80,000 UGX\nSocial Media: 100,000 UGX\nTotal if bought separately: 330,000 UGX\n\nBundle Price: 250,000 UGX\nYOU SAVE: 80,000 UGX')" class="text-[12px] bg-white/10 px-3 py-1.5 rounded-full hover:bg-white/20 transition-colors">ⓘ Savings Breakdown</button></div>
+<div class="flex items-center gap-4 mt-5"><span class="text-[22px] text-slate-400 line-through">330,000 UGX</span><span class="font-head font-extrabold text-[34px] text-emerald-400">250,000 UGX</span><button onclick="alert('Savings Breakdown:\\n\\nWeb Designing: 150,000 UGX\\nGoogle Maps: 80,000 UGX\\nSocial Media: 100,000 UGX\\nTotal if bought separately: 330,000 UGX\\n\\nBundle Price: 250,000 UGX\\nYOU SAVE: 80,000 UGX')" class="text-[12px] bg-white/10 px-3 py-1.5 rounded-full hover:bg-white/20 transition-colors">ⓘ Savings Breakdown</button></div>
 </div>
 <div class="bg-black/30 backdrop-blur-md rounded-2xl p-5 border border-white/10">
 <p class="text-[14px] font-bold text-emerald-400">Included in Bundle:</p>
@@ -405,9 +399,101 @@ function showReceipt(ref,service,amount,business,percent){
   document.getElementById('rAmount').textContent=amount.toLocaleString()+" UGX";
   document.getElementById('rBusiness').textContent=business;
   document.getElementById('rType').textContent=percent===50?"50% Deposit":"100% Full Payment";
-  const msg=encodeURIComponent("Hello DIBRA! ✅ I just paid "+amount.toLocaleString()+" UGX for "+service+" ("+(percent===50?"50% Deposit":"100% Full")+").\nMy Business: "+business+"\nReference: "+ref+"\nPlease start my project.");
+  const msg=encodeURIComponent("Hello DIBRA! ✅ I just paid "+amount.toLocaleString()+" UGX for "+service+" ("+(percent===50?"50% Deposit":"100% Full")+").\\nMy Business: "+business+"\\nReference: "+ref+"\\nPlease start my project.");
   document.getElementById('waLink').href="https://wa.me/256732166463?text="+msg;
 }
 </script>
 </body>
-</html>
+</html>`;
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    // 1. Handle Flutterwave Payment Verification Endpoint
+    if (url.pathname === "/api/verify-payment" && request.method === "POST") {
+      try {
+        const body = await request.json();
+        const { transaction_id, tx_ref, amount, service, payPercent, business, name, phone, email } = body;
+
+        if (!transaction_id || !amount) {
+          return new Response(JSON.stringify({ success: false, error: "Missing transaction details" }), {
+            status: 400,
+            headers: { "Content-Type": "application/json" }
+          });
+        }
+
+        // Verify directly with Flutterwave using your Worker secret FLW_SECRET_KEY
+        const flwResponse = await fetch(
+          `https://api.flutterwave.com/v3/transactions/${encodeURIComponent(transaction_id)}/verify`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${env.FLW_SECRET_KEY}`,
+              "Content-Type": "application/json"
+            }
+          }
+        );
+
+        const flwData = await flwResponse.json();
+
+        // Confirm status is successful, currency is UGX, and paid amount matches expected amount
+        const isVerified =
+          flwData.status === "success" &&
+          flwData.data &&
+          flwData.data.status === "successful" &&
+          flwData.data.currency === "UGX" &&
+          Number(flwData.data.amount) >= Number(amount);
+
+        if (isVerified) {
+          // Optional: Save order record to Cloudflare KV if bound as env.ORDERS_KV
+          if (env.ORDERS_KV) {
+            await env.ORDERS_KV.put(
+              tx_ref,
+              JSON.stringify({
+                transaction_id,
+                tx_ref,
+                service,
+                amount,
+                payPercent,
+                business,
+                name,
+                phone,
+                email,
+                verifiedAt: new Date().toISOString()
+              })
+            );
+          }
+
+          return new Response(JSON.stringify({ success: true, tx_ref }), {
+            status: 200,
+            headers: { "Content-Type": "application/json" }
+          });
+        }
+
+        return new Response(JSON.stringify({ success: false, error: "Payment verification failed" }), {
+          status: 400,
+          headers: { "Content-Type": "application/json" }
+        });
+      } catch (err) {
+        return new Response(JSON.stringify({ success: false, error: err.message }), {
+          status: 500,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+    }
+
+    // 2. Serve the HTML Landing Page for GET requests
+    if (request.method === "GET") {
+      return new Response(HTML_CONTENT, {
+        status: 200,
+        headers: {
+          "Content-Type": "text/html;charset=UTF-8",
+          "Cache-Control": "public, max-age=300"
+        }
+      });
+    }
+
+    return new Response("Method Not Allowed", { status: 405 });
+  }
+};
