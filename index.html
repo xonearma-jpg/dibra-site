@@ -34,14 +34,20 @@ input:focus{outline:2px solid #10B981;outline-offset:1px}
 <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-200/70">
 <div class="max-w-6xl mx-auto px-4 h-[64px] flex items-center justify-between">
 <a href="#" class="font-head font-extrabold text-[26px] tracking-tight">DIBRA<span class="text-emerald-500">.</span></a>
-<div class="hidden md:flex gap-6 text-[14px] font-medium text-slate-600"><a href="#services">Services</a><a href="#work">Our Work</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a></div>
+<div class="hidden md:flex gap-6 text-[14px] font-medium text-slate-600">
+  <a href="#services">Services</a>
+  <a href="#calculator">ROI Calculator</a>
+  <a href="#work">Our Work</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#faq">FAQ</a>
+</div>
 <a href="https://wa.me/256732166463?text=Hi%20DIBRA!%20I%20want%20a%20website%20for%20my%20business%20in%20Kampala." target="_blank" class="pulse bg-emerald-500 hover:bg-emerald-600 text-white text-[13px] md:text-sm font-bold px-4 py-2.5 rounded-full flex items-center gap-2">💬 WhatsApp Us</a>
 </div>
 </header>
 
 <main class="pt-[64px]">
 
-<!-- HERO -->
+<!-- HERO SECTION (UX Optimized Lead Gen Flow) -->
 <section class="max-w-6xl mx-auto px-4 pt-8 md:pt-14 pb-6">
 <div class="grid md:grid-cols-2 gap-8 items-center">
 <div>
@@ -49,8 +55,8 @@ input:focus{outline:2px solid #10B981;outline-offset:1px}
 <h1 class="font-head font-extrabold text-[36px] leading-[1.05] md:text-[54px] mt-4">We Build Websites That <span class="text-emerald-500">Bring Customers</span> To Your Business</h1>
 <p class="text-slate-600 text-[16px] md:text-[18px] leading-relaxed mt-4">We help Ugandan businesses in Kampala get more customers with professional websites, Google Maps visibility, and social media that actually sells.</p>
 <div class="flex flex-wrap gap-3 mt-6">
-<button onclick="openCheckout('All 3 Services Bundle',250000)" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-full shadow-lg shadow-emerald-500/20">Claim Bundle - 250k →</button>
-<a href="#services" class="bg-white border border-slate-200 font-bold px-6 py-3.5 rounded-full">See Services ↓</a>
+<button onclick="openCheckout('All 3 Services Bundle',250000)" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-full shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02]">Claim Bundle - 250k →</button>
+<a href="#calculator" class="bg-white border border-slate-200 font-bold px-6 py-3.5 rounded-full hover:bg-slate-50 transition-all">Estimate ROI ↓</a>
 </div>
 <div class="flex items-center gap-3 mt-6 text-[13px] text-slate-500"><div class="flex -space-x-2"><div class="w-8 h-8 rounded-full bg-emerald-100 border-2 border-white flex items-center justify-center text-[12px]">👩🏾</div><div class="w-8 h-8 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-[12px]">👨🏾</div><div class="w-8 h-8 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-[12px]">👩🏾</div></div><span><b class="text-slate-800">120+ businesses</b> in Kampala trust DIBRA</span></div>
 </div>
@@ -75,52 +81,135 @@ input:focus{outline:2px solid #10B981;outline-offset:1px}
 </div>
 </section>
 
-<!-- SERVICES -->
+<!-- INTERACTIVE ROI CALCULATOR WIDGET -->
+<section id="calculator" class="max-w-6xl mx-auto px-4 py-8">
+<div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-[24px] p-6 md:p-10 shadow-xl border border-slate-800">
+<div class="max-w-2xl mx-auto text-center">
+<span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[12px] font-bold px-3 py-1.5 rounded-full">📈 Growth Simulator</span>
+<h2 class="font-head font-extrabold text-[26px] md:text-[34px] mt-3">Calculate Your Potential Revenue Growth</h2>
+<p class="text-slate-300 text-[14px] mt-2">See how a professional DIBRA digital presence scales your monthly customer acquisition in Kampala.</p>
+</div>
+
+<div class="grid md:grid-cols-2 gap-8 mt-8 items-center bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-[14px] font-semibold mb-2">
+<span>Estimated Monthly Website Visitors</span>
+<span id="visitorsVal" class="text-emerald-400 font-bold">500</span>
+</div>
+<input type="range" id="visitorsRange" min="100" max="5000" step="50" value="500" class="w-full accent-emerald-500 cursor-pointer" oninput="updateROI()">
+</div>
+<div>
+<div class="flex justify-between text-[14px] font-semibold mb-2">
+<span>Average Customer Value (UGX)</span>
+<span id="valueVal" class="text-emerald-400 font-bold">50,000 UGX</span>
+</div>
+<input type="range" id="valueRange" min="10000" max="500000" step="10000" value="50000" class="w-full accent-emerald-500 cursor-pointer" oninput="updateROI()">
+</div>
+</div>
+
+<div class="bg-slate-900/80 border border-slate-700 rounded-xl p-6 text-center flex flex-col justify-center">
+<p class="text-[13px] text-slate-400 uppercase tracking-wider font-semibold">Projected Monthly Revenue Boost</p>
+<div id="projectedRevenue" class="font-head font-extrabold text-[32px] md:text-[40px] text-emerald-400 mt-2">1,500,000 UGX</div>
+<p class="text-[12px] text-slate-400 mt-2">Based on typical 3x conversion lift from optimized Google Maps & Mobile Web UX.</p>
+<button onclick="openCheckout('All 3 Services Bundle',250000)" class="mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-full text-[14px] transition-all">Capture This Revenue - Claim Bundle →</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES (Modern Bento-Grid Layout) -->
 <section id="services" class="max-w-6xl mx-auto px-4 py-10">
-<div class="text-center"><h2 class="font-head font-extrabold text-[28px] md:text-[36px]">Everything Your Business Needs To Grow</h2><p class="text-slate-500 mt-2">Transparent pricing. No hidden fees. 50% deposit to start.</p></div>
-
-<div class="grid md:grid-cols-3 gap-4 mt-8">
-<!-- Web -->
-<div class="bg-white rounded-[20px] border border-slate-200 p-6 flex flex-col">
-<div class="w-11 h-11 rounded-xl bg-slate-900 text-white flex items-center justify-center text-[20px]">🌐</div>
-<h3 class="font-head font-bold text-[20px] mt-4">Web Designing</h3>
-<p class="text-slate-500 text-[14px] leading-relaxed mt-2 flex-1">A modern, fast, mobile-friendly website that makes your business look big and trustworthy — with WhatsApp button, services, photos & contact form.</p>
-<div class="mt-4"><span class="font-head font-extrabold text-[26px]">150,000 UGX</span><span class="text-slate-400 text-[13px]"> / one-time</span></div>
-<ul class="text-[13px] text-slate-600 space-y-1.5 mt-3"><li>✓ Up to 5 pages • Mobile-first</li><li>✓ WhatsApp chat button</li><li>✓ Google Maps embedded</li></ul>
-<button onclick="openCheckout('Web Designing',150000)" class="mt-5 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-full">Order →</button>
-</div>
-<!-- Maps -->
-<div class="bg-white rounded-[20px] border border-slate-200 p-6 flex flex-col">
-<div class="w-11 h-11 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-[20px]">📍</div>
-<h3 class="font-head font-bold text-[20px] mt-4">Google Maps Business Setup</h3>
-<p class="text-slate-500 text-[14px] leading-relaxed mt-2 flex-1">We put your business on Google Maps so customers in Kampala find you when they search “near me”. Includes photos & reviews setup.</p>
-<div class="mt-4"><span class="font-head font-extrabold text-[26px]">80,000 UGX</span><span class="text-slate-400 text-[13px]"> / one-time</span></div>
-<ul class="text-[13px] text-slate-600 space-y-1.5 mt-3"><li>✓ Appear on Google Search & Maps</li><li>✓ Reviews & photos setup</li><li>✓ Call & Directions button</li></ul>
-<button onclick="openCheckout('Google Maps Business Setup',80000)" class="mt-5 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-full">Order →</button>
-</div>
-<!-- Social -->
-<div class="bg-white rounded-[20px] border border-slate-200 p-6 flex flex-col">
-<div class="w-11 h-11 rounded-xl bg-amber-400 text-white flex items-center justify-center text-[20px]">📱</div>
-<h3 class="font-head font-bold text-[20px] mt-4">Social Media Marketing</h3>
-<p class="text-slate-500 text-[14px] leading-relaxed mt-2 flex-1">Professional Facebook & TikTok setup, posts, and ads to get more customers. We manage your page for you.</p>
-<div class="mt-4"><span class="font-head font-extrabold text-[26px]">100,000 UGX</span><span class="text-slate-400 text-[13px]"> / per month</span></div>
-<ul class="text-[13px] text-slate-600 space-y-1.5 mt-3"><li>✓ Facebook & TikTok setup</li><li>✓ Weekly posts & designs</li><li>✓ Customers message you directly</li></ul>
-<button onclick="openCheckout('Social Media Marketing',100000)" class="mt-5 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-full">Order →</button>
-</div>
+<div class="text-center">
+<h2 class="font-head font-extrabold text-[28px] md:text-[36px]">Everything Your Business Needs To Grow</h2>
+<p class="text-slate-500 mt-2">Transparent pricing. No hidden fees. 50% deposit to start.</p>
 </div>
 
-<!-- BUNDLE -->
-<div class="bundle-glow bg-slate-900 text-white rounded-[24px] p-6 md:p-8 mt-5 relative overflow-hidden">
+<!-- Bento Grid Container -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+  
+  <!-- Card 1: Web Designing (Tall / Main Bento Item) -->
+  <div class="bg-white rounded-[24px] border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300 md:col-span-1 group">
+    <div>
+      <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-[22px] group-hover:scale-110 transition-transform">🌐</div>
+      <h3 class="font-head font-bold text-[22px] mt-4">Web Designing</h3>
+      <p class="text-slate-500 text-[14px] leading-relaxed mt-2">A modern, fast, mobile-friendly website that makes your business look big and trustworthy — with WhatsApp button, services, photos & contact form.</p>
+      <ul class="text-[13px] text-slate-600 space-y-2 mt-4">
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Up to 5 pages • Mobile-first</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> WhatsApp chat integration</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Embedded Google Maps</li>
+      </ul>
+    </div>
+    <div class="mt-6 pt-4 border-t border-slate-100">
+      <div class="flex items-baseline justify-between mb-4">
+        <span class="font-head font-extrabold text-[24px]">150,000 UGX</span>
+        <span class="text-slate-400 text-[12px]">one-time</span>
+      </div>
+      <button onclick="openCheckout('Web Designing',150000)" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-full transition-all">Order Web Design →</button>
+    </div>
+  </div>
+
+  <!-- Card 2: Google Maps Setup -->
+  <div class="bg-white rounded-[24px] border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300 md:col-span-1 group">
+    <div>
+      <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-[22px] group-hover:scale-110 transition-transform">📍</div>
+      <h3 class="font-head font-bold text-[22px] mt-4">Google Maps Business Setup</h3>
+      <p class="text-slate-500 text-[14px] leading-relaxed mt-2">We put your business on Google Maps so customers in Kampala find you when they search “near me”. Includes photos & reviews setup.</p>
+      <ul class="text-[13px] text-slate-600 space-y-2 mt-4">
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Appear on Google Search & Maps</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Reviews & professional photos</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> One-tap Call & Directions</li>
+      </ul>
+    </div>
+    <div class="mt-6 pt-4 border-t border-slate-100">
+      <div class="flex items-baseline justify-between mb-4">
+        <span class="font-head font-extrabold text-[24px]">80,000 UGX</span>
+        <span class="text-slate-400 text-[12px]">one-time</span>
+      </div>
+      <button onclick="openCheckout('Google Maps Business Setup',80000)" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-full transition-all">Order Google Maps →</button>
+    </div>
+  </div>
+
+  <!-- Card 3: Social Media Marketing -->
+  <div class="bg-white rounded-[24px] border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300 md:col-span-1 group">
+    <div>
+      <div class="w-12 h-12 rounded-2xl bg-amber-400 text-white flex items-center justify-center text-[22px] group-hover:scale-110 transition-transform">📱</div>
+      <h3 class="font-head font-bold text-[22px] mt-4">Social Media Marketing</h3>
+      <p class="text-slate-500 text-[14px] leading-relaxed mt-2">Professional Facebook & TikTok setup, posts, and ads to get more customers. We manage your page for you consistently.</p>
+      <ul class="text-[13px] text-slate-600 space-y-2 mt-4">
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Facebook & TikTok setup</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Weekly custom branded posts</li>
+        <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Direct customer messaging flow</li>
+      </ul>
+    </div>
+    <div class="mt-6 pt-4 border-t border-slate-100">
+      <div class="flex items-baseline justify-between mb-4">
+        <span class="font-head font-extrabold text-[24px]">100,000 UGX</span>
+        <span class="text-slate-400 text-[12px]">per month</span>
+      </div>
+      <button onclick="openCheckout('Social Media Marketing',100000)" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-full transition-all">Order Social Media →</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- BUNDLE FEATURE BANNER -->
+<div class="bundle-glow bg-slate-900 text-white rounded-[24px] p-6 md:p-8 mt-6 relative overflow-hidden">
 <div class="absolute top-4 right-4 bg-amber-400 text-slate-900 text-[12px] font-extrabold px-3 py-1.5 rounded-full rotate-2">🔥 MOST POPULAR • Save 80k</div>
 <div class="grid md:grid-cols-[1.2fr_.8fr] gap-6 items-center">
 <div>
 <h3 class="font-head font-extrabold text-[24px] md:text-[28px]">All-In-One Growth Bundle</h3>
-<p class="text-slate-300 text-[14px] mt-2">Website + Google Maps + Social Media. Everything in one package. The smartest way to grow in Kampala.</p>
-<div class="flex items-center gap-3 mt-4"><span class="text-[22px] text-slate-400 line-through">330,000 UGX</span><span class="font-head font-extrabold text-[32px] text-emerald-400">250,000 UGX</span><button onclick="alert('Savings Breakdown:\n\nWeb Designing: 150,000 UGX\nGoogle Maps: 80,000 UGX\nSocial Media: 100,000 UGX\nTotal if bought separately: 330,000 UGX\n\nBundle Price: 250,000 UGX\nYOU SAVE: 80,000 UGX')" class="text-[12px] bg-white/10 px-2.5 py-1 rounded-full">ⓘ See savings breakdown</button></div>
+<p class="text-slate-300 text-[14px] mt-2">Website + Google Maps + Social Media. Everything in one package. The smartest way to dominate your market in Kampala.</p>
+<div class="flex items-center gap-3 mt-4"><span class="text-[22px] text-slate-400 line-through">330,000 UGX</span><span class="font-head font-extrabold text-[32px] text-emerald-400">250,000 UGX</span><button onclick="alert('Savings Breakdown:\n\nWeb Designing: 150,000 UGX\nGoogle Maps: 80,000 UGX\nSocial Media: 100,000 UGX\nTotal if bought separately: 330,000 UGX\n\nBundle Price: 250,000 UGX\nYOU SAVE: 80,000 UGX')" class="text-[12px] bg-white/10 px-2.5 py-1 rounded-full hover:bg-white/20">ⓘ See savings breakdown</button></div>
 </div>
-<div class="bg-white/10 rounded-2xl p-4">
-<p class="text-[13px] font-bold">What you get:</p><ul class="text-[13px] text-slate-200 space-y-1 mt-2"><li>✓ Complete Website (150k value)</li><li>✓ Google Maps Setup (80k value)</li><li>✓ 1 Month Social Media (100k value)</li></ul>
-<button onclick="openCheckout('All 3 Services Bundle',250000)" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-full mt-4">Claim Bundle - 250k →</button>
+<div class="bg-white/10 rounded-2xl p-4 border border-white/10">
+<p class="text-[13px] font-bold">What you get:</p>
+<ul class="text-[13px] text-slate-200 space-y-1 mt-2">
+  <li>✓ Complete Website (150k value)</li>
+  <li>✓ Google Maps Setup (80k value)</li>
+  <li>✓ 1 Month Social Media (100k value)</li>
+</ul>
+<button onclick="openCheckout('All 3 Services Bundle',250000)" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-full mt-4 transition-all hover:scale-[1.02]">Claim Bundle - 250k →</button>
 <p class="text-center text-[11px] text-slate-400 mt-2">Pay 50% deposit (125k) to start today</p>
 </div>
 </div>
@@ -147,7 +236,7 @@ input:focus{outline:2px solid #10B981;outline-offset:1px}
 </div>
 </section>
 
-<!-- REVIEWS CAROUSEL -->
+<!-- REVIEWS -->
 <section id="reviews" class="max-w-6xl mx-auto px-4 py-8">
 <h2 class="font-head font-extrabold text-[26px] text-center">Loved by Kampala Businesses</h2>
 <p class="text-center text-slate-500 text-[14px] mt-1">Swipe →</p>
@@ -158,7 +247,7 @@ input:focus{outline:2px solid #10B981;outline-offset:1px}
 </div>
 </section>
 
-<!-- FAQ ACCORDION -->
+<!-- FAQ -->
 <section id="faq" class="max-w-3xl mx-auto px-4 py-8">
 <h2 class="font-head font-extrabold text-[26px] text-center">Frequently Asked Questions</h2>
 <div class="space-y-3 mt-6">
@@ -181,55 +270,61 @@ input:focus{outline:2px solid #10B981;outline-offset:1px}
 <div class="border-t border-white/10 text-center text-[12px] text-slate-500 py-4">© 2026 DIBRA • Kampala, Uganda • All rights reserved.</div>
 </footer>
 
-<!-- CHECKOUT MODAL / DRAWER -->
+<!-- CHECKOUT MODAL -->
 <div id="checkoutModal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true" aria-label="Checkout">
 <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]" onclick="closeCheckout()"></div>
 <div id="drawer" class="drawer absolute left-0 right-0 bottom-0 md:left-auto md:right-auto md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:w-[520px] md:mx-auto bg-white rounded-t-[24px] md:rounded-[24px] max-h-[92vh] overflow-y-auto p-6 translate-y-full md:translate-y-0 md:scale-95 opacity-0">
 <div class="flex justify-between items-start"><div><h2 class="font-head font-extrabold text-[22px]">Pay & Start Now</h2><p class="text-slate-500 text-[13px]">Secure payment via Flutterwave • Kampala, Uganda</p></div><button onclick="closeCheckout()" class="w-9 h-9 rounded-full bg-slate-100 text-[18px]">×</button></div>
-
 <div id="checkoutForm">
 <div class="mt-4"><label class="text-[13px] font-bold">Service</label><input id="serviceName" readonly class="w-full mt-1 bg-slate-50 border rounded-xl px-3 py-3 font-bold"></div>
-
-<!-- TOGGLE -->
 <div class="grid grid-cols-2 bg-slate-100 rounded-full p-1 mt-4" role="group" aria-label="Payment type">
 <button id="btn50" onclick="setPayType(50)" class="bg-emerald-500 text-white font-bold text-[13px] py-2.5 rounded-full">50% Deposit to Start</button>
 <button id="btn100" onclick="setPayType(100)" class="font-bold text-[13px] py-2.5 rounded-full text-slate-600">100% Full Payment</button>
 </div>
-
 <div class="bg-slate-50 border rounded-2xl p-4 mt-4 space-y-2 text-[14px]"><div class="flex justify-between"><span class="text-slate-500">Service Price</span><b id="fullPrice">0 UGX</b></div><div class="flex justify-between"><span class="text-slate-500" id="payLabel">You Pay Now (50%)</span><b id="payNow" class="text-emerald-600 text-[18px]">0 UGX</b></div><div class="flex justify-between"><span class="text-slate-500">Balance Later</span><b id="balance">0 UGX</b></div></div>
-
 <div class="space-y-3 mt-4">
 <input id="businessName" placeholder="Business Name * e.g. Kampala Hardware" class="w-full border rounded-xl px-3 py-3 text-[15px]">
 <input id="clientName" placeholder="Client Full Name * e.g. Nyanzi Jackson" class="w-full border rounded-xl px-3 py-3 text-[15px]">
 <input id="phone" value="+256" placeholder="WhatsApp Phone * +256..." class="w-full border rounded-xl px-3 py-3 text-[15px]">
 <input id="email" type="email" placeholder="Email Address * you@gmail.com" class="w-full border rounded-xl px-3 py-3 text-[15px]">
 </div>
-
-<!-- BADGES -->
 <div class="flex flex-wrap gap-2 mt-4">
 <span class="bg-amber-400 text-slate-900 text-[11px] font-extrabold px-2.5 py-1.5 rounded-full">🟡 MTN MoMo</span>
 <span class="bg-red-500 text-white text-[11px] font-extrabold px-2.5 py-1.5 rounded-full">🔴 Airtel Money</span>
 <span class="bg-slate-900 text-white text-[11px] font-extrabold px-2.5 py-1.5 rounded-full">💳 Visa / Mastercard</span>
 <span class="bg-slate-100 text-slate-700 text-[11px] font-extrabold px-2.5 py-1.5 rounded-full">🏦 Bank Transfer</span>
 </div>
-
 <button id="payBtn" onclick="payWithFlutterwave()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 rounded-full mt-4">Pay <span id="payBtnAmount"></span> UGX Securely →</button>
 <p class="text-center text-[11px] text-slate-400 mt-2">You will get MTN MoMo / Airtel USSD prompt or Card / Bank Transfer. Do not close page until payment completes.</p>
 </div>
-
 <div id="receiptScreen" class="hidden text-center pt-2">
 <div class="text-[44px]">✅</div><h3 class="font-head font-extrabold text-[22px] text-emerald-600">Payment Successful!</h3><p class="text-slate-500 text-[14px] mt-1">Thank you! Your order is confirmed. We will start building immediately.</p>
 <div class="bg-slate-50 border border-dashed rounded-2xl p-4 text-left text-[14px] mt-4 space-y-2"><div class="flex justify-between"><span>Reference ID</span><b id="rRef"></b></div><div class="flex justify-between"><span>Service</span><b id="rService"></b></div><div class="flex justify-between"><span>Amount Paid</span><b id="rAmount"></b></div><div class="flex justify-between"><span>Business</span><b id="rBusiness"></b></div><div class="flex justify-between"><span>Payment Type</span><b id="rType"></b></div></div>
 <a id="waLink" target="_blank" class="block bg-[#25D366] font-bold py-3.5 rounded-full mt-4">Send Receipt on WhatsApp →</a>
 <button onclick="closeCheckout()" class="w-full border font-bold py-3 rounded-full mt-2">Done</button>
 </div>
-
 </div>
 </div>
 
 <script>
 const FLW_PUBLIC_KEY = "FLWPUBK_TEST-xxxxxxxxxxxxxxxx-X";
 let currentService="", currentPrice=0, payPercent=50;
+
+// ROI Calculator Script
+function updateROI(){
+  const visitors = parseInt(document.getElementById('visitorsRange').value);
+  const avgValue = parseInt(document.getElementById('valueRange').value);
+  document.getElementById('visitorsVal').textContent = visitors.toLocaleString();
+  document.getElementById('valueVal').textContent = avgValue.toLocaleString() + " UGX";
+  
+  // Assuming a conservative 3% conversion rate conversion boost via proper local website UX
+  const estimatedNewCustomers = visitors * 0.03;
+  const projectedRevenue = Math.round(estimatedNewCustomers * avgValue);
+  document.getElementById('projectedRevenue').textContent = projectedRevenue.toLocaleString() + " UGX";
+}
+// Initialize calculation on load
+updateROI();
+
 function openCheckout(service,price){
   currentService=service; currentPrice=price;
   document.getElementById('serviceName').value=service;
@@ -290,4 +385,4 @@ function showReceipt(ref,service,amount,business,percent){
 }
 </script>
 </body>
-                                                                           </html>
+</html>
