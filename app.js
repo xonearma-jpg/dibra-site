@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Navigation Toggle
+  // Mobile Navigation Toggle
   const mobileToggle = document.getElementById('mobile-toggle');
   const navLinks = document.getElementById('nav-links');
 
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking a link
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -19,31 +18,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Interactive Form Submission Feedback
-  const signupForm = document.getElementById('signup-form');
-  const emailInput = document.getElementById('email-input');
+  // Auto-fill order form when a service or product button is clicked
+  const serviceButtons = document.querySelectorAll('.select-service');
+  const selectedItemInput = document.getElementById('selected-item');
+
+  serviceButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const itemName = btn.getAttribute('data-service');
+      if (selectedItemInput && itemName) {
+        selectedItemInput.value = itemName;
+      }
+    });
+  });
+
+  // Handle Order Form Submission (Opens WhatsApp directly)
+  const orderForm = document.getElementById('order-form');
+  const clientEmail = document.getElementById('client-email');
   const formFeedback = document.getElementById('form-feedback');
 
-  if (signupForm) {
-    signupForm.addEventListener('submit', (e) => {
+  if (orderForm) {
+    orderForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = emailInput.value.trim();
+      const item = selectedItemInput.value.trim();
+      const contact = clientEmail.value.trim();
 
-      if (!email) return;
+      if (!item || !contact) return;
 
-      const submitBtn = signupForm.querySelector('button');
-      const originalText = submitBtn.textContent;
+      formFeedback.textContent = `✓ Request received for "${item}"! Opening WhatsApp...`;
+
+      // ⚠️ Replace 256700000000 with your actual WhatsApp phone number
+      const phone = "256700000000"; 
+      const message = encodeURIComponent(`Hello Dibra! I would like to order: ${item}. My contact: ${contact}`);
       
-      submitBtn.textContent = 'Registering...';
-      submitBtn.disabled = true;
-
-      // Simulate instant edge API response
       setTimeout(() => {
-        formFeedback.textContent = `✓ Access invite dispatched to ${email}`;
-        emailInput.value = '';
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 600);
+        window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        orderForm.reset();
+      }, 800);
     });
   }
 });
