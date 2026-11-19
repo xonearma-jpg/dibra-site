@@ -1,9 +1,0 @@
-<!-- Google tag (gtag.js) - Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W1VJTQR6GV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W1VJTQR6GV');
-</script>
